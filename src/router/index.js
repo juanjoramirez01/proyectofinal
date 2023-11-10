@@ -13,7 +13,7 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/listarusuarios',
+    path: '/listarusuarios/:idEntity',
     name: 'listarusuarios',
     component: ListarUsuarios
   },

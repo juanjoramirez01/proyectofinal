@@ -24,6 +24,8 @@
               <td>
                 <button @click="editEntidad(entidad.id)">Editar</button>
                 <button @click="confirmDelete(entidad.id)">Eliminar</button>
+                <button @click="Usuarios(entidad.id)">Usuarios</button>
+
               </td>
             </tr>
           </tbody>
@@ -122,8 +124,13 @@ export default {
     
     editEntidad(id) {
       // Redirigir a la vista de edición y pasar el ID como parámetro
-
       this.$router.push({ name: 'editarentidad', params: { idEntity: id } });
+
+    },
+
+    Usuarios(id) {
+      // Redirigir a la vista de listar usarios y pasar el ID como parámetro
+      this.$router.push({ name: 'listarusuarios', params: { idEntity: id } });
 
     },
   

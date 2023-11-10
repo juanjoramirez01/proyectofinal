@@ -9,11 +9,11 @@
             <input type="text" id="nameEntity" class="form-control" v-model="entityData.nameEntity" required>
           </div>
           <div class="form-group">
-            <label for="phoneEntity">Teléfono de la Entidad:</label>
+            <label for="phoneEntity">Teléfono:</label>
             <input type="text" id="phoneEntity" class="form-control" v-model="entityData.phoneEntity" required>
           </div>
           <div class="form-group">
-            <label for="addressEntity">Dirección de la Entidad:</label>
+            <label for="addressEntity">Dirección:</label>
             <input type="text" id="addressEntity" class="form-control" v-model="entityData.addressEntity" required>
           </div>
           <button type="submit" class="btn btn-primary">Aceptar</button>
