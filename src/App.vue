@@ -4,10 +4,10 @@
       <nav>
         <router-link to="/listarentidades">Entidades</router-link>
         
-        <router-link to="/">Usuarios</router-link>
+        <router-link to="/crearusuarios">Usuarios</router-link>
         
-        <router-link to="/login">Servicios</router-link>
-        
+        <router-link to="/login">Login</router-link>
+
       </nav>
     </div>
     <div class="content">

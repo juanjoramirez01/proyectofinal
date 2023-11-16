@@ -7,6 +7,7 @@ import CrearUsuarios from '../components/CrearUsuarios.vue'
 import EditarEntidad from '../components/EditarEntidad.vue'
 import LoginForm from '../components/LoginForm.vue'
 import EditarUsuario from '../components/EditarUsuarios.vue'
+import Autoevaluacion from '../views/UserView.vue'
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: '/listarusuarios/:idEntity',
     name: 'listarusuarios',
     component: ListarUsuarios
+  },
+  {
+    path: '/autoevaluacion',
+    name: 'autoevaluacion',
+    component: Autoevaluacion
   },
 
   {

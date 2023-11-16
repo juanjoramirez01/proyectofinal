@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <h2>Crear Entidad</h2>
+        
         <form @submit.prevent="submitForm">
           <div class="form-group">
             <label for="nameEntity">Nombre de la Entidad:</label>

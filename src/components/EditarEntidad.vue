@@ -1,23 +1,26 @@
 <template>
-  <div>
-    <h2>Editar Entidad</h2>
-    <form @submit.prevent="submitForm">
+  <div class="container mt-5">
+    <h2 class="text-center">Editar Entidad</h2>
+    <form @submit.prevent="submitForm" class="mt-4">
       <div class="form-group">
         <label for="nameEntity">Nombre de la Entidad:</label>
-        <input type="text" id="nameEntity" v-model="entityData.nameEntity" required>
+        <input type="text" id="nameEntity" v-model="entityData.nameEntity" class="form-control" required>
       </div>
       <div class="form-group">
-        <label for="adressEntity">Dirección:</label>
-        <input type="text" id="adressEntity" v-model="entityData.adressEntity" required>
+        <label for="addressEntity">Dirección:</label>
+        <input type="text" id="addressEntity" v-model="entityData.addressEntity" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="phoneEntity">Teléfono:</label>
-        <input type="text" id="phoneEntity" v-model="entityData.phoneEntity" required>
+        <input type="text" id="phoneEntity" v-model="entityData.phoneEntity" class="form-control" required>
       </div>
-      <button type="submit" class="btn btn-primary">Guardar</button>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </div>
     </form>
   </div>
 </template>
+
 
 <script>
 import axios from 'axios';
