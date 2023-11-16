@@ -5,6 +5,8 @@ import ListarEntidades from '../components/ListarEntidades.vue'
 import ListarUsuarios from '../components/ListarUsuarios.vue'
 import CrearUsuarios from '../components/CrearUsuarios.vue'
 import EditarEntidad from '../components/EditarEntidad.vue'
+import LoginForm from '../components/LoginForm.vue'
+import EditarUsuario from '../components/EditarUsuarios.vue'
 
 const routes = [
   {
@@ -27,6 +29,16 @@ const routes = [
     path: '/editarentidad/:idEntity',
     name: 'editarentidad',
     component: EditarEntidad
+  },
+  {
+    path: '/editarusuario/:userEntityId/:userId',
+    name: 'editarusuario',
+    component: EditarUsuario
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginForm
   },
 
 

@@ -7,6 +7,10 @@
         <input type="text" id="nameUser" v-model="userData.nameUser" required>
       </div>
       <div class="form-group">
+        <label for="nickname">Usuario:</label>
+        <input type="text" id="nickname" v-model="userData.nickname" required>
+      </div>
+      <div class="form-group">
         <label for="phoneUser">Teléfono:</label>
         <input type="text" id="phoneUser" v-model="userData.phoneUser" required>
       </div>
@@ -44,6 +48,7 @@ export default {
       userData: {
         nameUser: '',
         phoneUser: '',
+        nickname: '',
         passwordUser: '',
         documentUser: '',
         positionUser: '',
@@ -60,6 +65,7 @@ export default {
       const params = new URLSearchParams();
       params.append('operation', 'SaveUser');
       params.append('nameUser', this.userData.nameUser);
+      params.append('nickname', this.userData.nickname);
       params.append('phoneUser', this.userData.phoneUser);
       params.append('documentUser', this.userData.documentUser);
       params.append('passwordUser', this.userData.passwordUser);

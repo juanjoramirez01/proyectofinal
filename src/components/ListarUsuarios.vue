@@ -22,7 +22,7 @@
               <td>{{ usuario.phone }}</td>
               <td>{{ usuario.position }}</td>
               <td>
-                <button @click="editUsuario(usuario.id)">Editar</button>
+                <button @click="editUsuario(usuario.id, usuario.entityId)">Editar</button>
                 <button @click="confirmDelete(usuario.id)">Eliminar</button>
               </td>
             </tr>
@@ -124,8 +124,9 @@ export default {
     agregarUsuario() {
       this.$router.push({ name: 'crearusuarios' });
     },
-    editUsuario(id) {
-      this.$router.push({ name: 'editarusuario', params: { idUser: id } });
+    editUsuario(id, entityId) {
+      this.$router.push({ name: 'editarusuario', params: { userId: id, userEntityId: entityId } });
+      
     },
     async borrarUsuario(userId) {
       try {

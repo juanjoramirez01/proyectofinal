@@ -6,7 +6,8 @@
         
         <router-link to="/">Usuarios</router-link>
         
-        <router-link to="/about">Servicios</router-link>
+        <router-link to="/login">Servicios</router-link>
+        
       </nav>
     </div>
     <div class="content">
