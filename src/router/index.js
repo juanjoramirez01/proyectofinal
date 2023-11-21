@@ -5,8 +5,12 @@ import ListarEntidades from '../components/ListarEntidades.vue'
 import ListarUsuarios from '../components/ListarUsuarios.vue'
 import CrearUsuarios from '../components/CrearUsuarios.vue'
 import EditarEntidad from '../components/EditarEntidad.vue'
+import AdminHome from '../components/AdminHome.vue'
+import UserHome from '../components/UserHome.vue'
+import AuditorHome from '../components/AuditorHome.vue'
 import LoginForm from '../components/LoginForm.vue'
 import EditarUsuario from '../components/EditarUsuarios.vue'
+import AllUsers from '../components/AllUsers.vue'
 import Autoevaluacion from '../views/UserView.vue'
 
 const routes = [
@@ -14,6 +18,26 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/listarusuarios',
+    name: 'usuarios',
+    component: AllUsers
+  },
+  {
+    path: '/adminHome',
+    name: 'adminhome',
+    component: AdminHome
+  },
+  {
+    path: '/userHome',
+    name: 'userhome',
+    component: UserHome
+  },
+  {
+    path: '/auditorHome',
+    name: 'auditorhome',
+    component: AuditorHome
   },
   {
     path: '/listarusuarios/:idEntity',

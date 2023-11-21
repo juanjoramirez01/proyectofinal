@@ -4,9 +4,9 @@
       <nav>
         <router-link to="/listarentidades">Entidades</router-link>
         
-        <router-link to="/crearusuarios">Usuarios</router-link>
+        <router-link to="/listarusuarios">Usuarios</router-link>
         
-        <router-link to="/login">Login</router-link>
+        <router-link to="/">Login</router-link>
 
       </nav>
     </div>

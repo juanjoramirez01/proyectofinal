@@ -7,8 +7,8 @@
         <input type="text" id="nameEntity" v-model="entityData.nameEntity" class="form-control" required>
       </div>
       <div class="form-group">
-        <label for="addressEntity">Dirección:</label>
-        <input type="text" id="addressEntity" v-model="entityData.addressEntity" class="form-control" required>
+        <label for="adressEntity">Dirección:</label>
+        <input type="text" id="adressEntity" v-model="entityData.adressEntity" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="phoneEntity">Teléfono:</label>

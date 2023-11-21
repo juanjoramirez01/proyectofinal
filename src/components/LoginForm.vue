@@ -1,4 +1,4 @@
-<template>
+]<template>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
@@ -25,6 +25,8 @@
   </div>
 </template>
 
+
+
 <script>
 import axios from 'axios';
 
@@ -43,9 +45,25 @@ export default {
         .post(url)
         .then((response) => {
           if (response.data.valid) {
-            // Check if idEntity is available, otherwise provide a default value
-            const idEntity = this.$route.params.idEntity || 'defaultValue';
-            this.$router.push({ name: 'autoevaluacion', params: { idEntity } });
+            const userType = response.data.userType;
+            let homeRouteName;
+
+            switch (userType) {
+              case 0:
+                homeRouteName = 'AdminHome';
+                break;
+              case 1:
+                homeRouteName = 'UserHome';
+                break;
+              case 2:
+                homeRouteName = 'AuditorHome';
+                break;
+              default:
+                // Handle other cases or provide a default route
+                homeRouteName = 'DefaultHome';
+            }
+
+            this.$router.push({ name: homeRouteName });
           } else {
             this.error = true;
             this.error_msg = response.data.error_msg;
@@ -60,9 +78,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.container {
-  margin-top: 40px;
-}
-</style>
