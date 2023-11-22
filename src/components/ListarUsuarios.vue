@@ -10,7 +10,6 @@
             <tr>
               <th>ID</th>
               <th>Nombre</th>
-
               <th>Teléfono</th>
               <th>Posición</th>
             </tr>
@@ -22,7 +21,7 @@
               <td>{{ usuario.phone }}</td>
               <td>{{ usuario.position }}</td>
               <td>
-                <button @click="editUsuario(usuario.id, usuario.entityId)">Editar</button>
+                <button @click="consultarUsuarioPorId(usuario.id)">Editar</button>
                 <button @click="confirmDelete(usuario.id)">Eliminar</button>
               </td>
             </tr>
@@ -101,6 +100,30 @@ export default {
         console.error('Error al cargar la lista de usuarios:', error);
       });
   },
+  async consultarUsuarioPorId(userId) {
+      try {
+        const url = `https://redb.qsystems.co/QS3100/QServlet?operation=queryUserById&tna=5&key=e35d751c-12a8-4789-91d0-a95f055f0630&userId=${userId}`;
+        const response = await axios.get(url);
+
+        console.log('Información del usuario:', response.data);
+
+        if (response.data.arrayUser && response.data.arrayUser.length > 0) {
+          // Obtén el entityId directamente del usuario
+          const entityId = response.data.arrayUser[0].entityID;
+
+          if (entityId) {
+            this.editUsuario(userId, entityId);
+          } else {
+            console.error('No se encontró entityId en la respuesta del servidor.');
+          }
+        } else {
+          console.error('No se encontró arrayUser o está vacío en la respuesta del servidor.');
+        }
+      } catch (error) {
+        console.error('Error al cargar la información del usuario:', error);
+      }
+    },
+
 
     previousPage() {
       if (this.currentPage > 1) {
@@ -125,12 +148,15 @@ export default {
       this.$router.push({ name: 'crearusuarios' });
     },
     editUsuario(id, entityId) {
-      this.$router.push({ name: 'editarusuario', params: { userId: id, userEntityId: entityId } });
+      console.log('editUsuario method called with entityId:', entityId, 'and id:', id);
+      this.consultarUsuarioPorId(id);
+      this.$router.push({ name: 'editarusuario', params: { userEntityId: entityId, userId: id } });
+      
       
     },
     async borrarUsuario(userId) {
       try {
-        const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=deleteUser&UserId=${userId}&key=e35d751c-12a8-4789-91d0-a95f055f0630`;
+        const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=DeleteUser&UserId=${userId}&key=e35d751c-12a8-4789-91d0-a95f055f0630`;
         const response = await axios.get(url);
         console.log('Respuesta del servidor:', response.data);
         alert('Usuario eliminado con éxito.');

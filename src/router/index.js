@@ -1,17 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import HomeView from '../views/HomeView.vue'
 import CrearEntidades from '../components/CrearEntidades.vue'
 import ListarEntidades from '../components/ListarEntidades.vue'
 import ListarUsuarios from '../components/ListarUsuarios.vue'
 import CrearUsuarios from '../components/CrearUsuarios.vue'
+import CrearServicios from '../components/CrearServicios.vue'
 import EditarEntidad from '../components/EditarEntidad.vue'
 import AdminHome from '../components/AdminHome.vue'
 import UserHome from '../components/UserHome.vue'
 import AuditorHome from '../components/AuditorHome.vue'
+import ListarServicios from '../components/ListarServicios.vue'
 import LoginForm from '../components/LoginForm.vue'
 import EditarUsuario from '../components/EditarUsuarios.vue'
 import AllUsers from '../components/AllUsers.vue'
+import AllServices from '../components/AllServices.vue'
 import Autoevaluacion from '../views/UserView.vue'
+
+
 
 const routes = [
   {
@@ -23,6 +29,11 @@ const routes = [
     path: '/listarusuarios',
     name: 'usuarios',
     component: AllUsers
+  },
+  {
+    path: '/listarservicios',
+    name: 'servicios',
+    component: AllServices
   },
   {
     path: '/adminHome',
@@ -45,6 +56,12 @@ const routes = [
     component: ListarUsuarios
   },
   {
+    path: '/listarservicios/:idEntity',
+    name: 'listarservicios',
+    component: ListarServicios
+  },
+
+  {
     path: '/autoevaluacion',
     name: 'autoevaluacion',
     component: Autoevaluacion
@@ -55,6 +72,12 @@ const routes = [
     name: 'crearentidades',
     component: CrearEntidades
   },
+  {
+    path: '/crearservicios',
+    name: 'crearservicios',
+    component: CrearServicios
+  },
+
   {
     path: '/editarentidad/:idEntity',
     name: 'editarentidad',
@@ -69,6 +92,12 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginForm
+  },
+
+  {
+    path: '/listarservicios',
+    name: 'listarservicios',
+    component: ListarServicios
   },
 
 
@@ -96,5 +125,7 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+
 
 export default router

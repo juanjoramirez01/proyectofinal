@@ -5,6 +5,8 @@
         <router-link to="/listarentidades">Entidades</router-link>
         
         <router-link to="/listarusuarios">Usuarios</router-link>
+
+        <router-link to="/listarservicios">Servicios</router-link>
         
         <router-link to="/">Login</router-link>
 

@@ -25,6 +25,7 @@
                 <button @click="editEntidad(entidad.id)">Editar</button>
                 <button @click="confirmDelete(entidad.id)">Eliminar</button>
                 <button @click="Usuarios(entidad.id)">Usuarios</button>
+                <button @click="Servicios(entidad.id)">Servicios</button>
 
               </td>
             </tr>
@@ -65,6 +66,9 @@ export default {
       entidades: [],
       currentPage: 1,
       itemsPerPage: 10,
+      entityData: {
+        idEntity: this.$route.params.idEntity,
+      },
     };
   },
   computed: {
@@ -83,19 +87,7 @@ export default {
 
   
   methods: {
-    consultarEntidades() {
-      // Realiza la solicitud para obtener la lista de entidades
-      fetch('https://redb.qsystems.co/QS3100/QServlet?operation=queryEntityByTenancy&tna=5&key=e35d751c-12a8-4789-91d0-a95f055f0630', {
-        method: 'GET',
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          this.entidades = data.arrayEntity;
-        })
-        .catch((error) => {
-          console.error('Error al cargar la lista de entidades:', error);
-        });
-    },
+    
     previousPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
@@ -131,7 +123,11 @@ export default {
     Usuarios(id) {
       // Redirigir a la vista de listar usarios y pasar el ID como parámetro
       this.$router.push({ name: 'listarusuarios', params: { idEntity: id } });
+    },
 
+    Servicios(id) {
+      // Redirigir a la vista de listar servicios y pasar el ID como parámetro
+      this.$router.push({ name: 'listarservicios', params: { idEntity: id } });
     },
   
   async borrarEntidad(idEntity) {
