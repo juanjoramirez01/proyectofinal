@@ -1,42 +1,76 @@
 <template>
-    <div class="container mt-5">
-      <h2 class="text-center">Crear Usuario</h2>
-      <form @submit.prevent="CrearUsuario" class="mt-4">
-        <div class="form-group">
-          <label for="nameUser">Nombre:</label>
-          <input type="text" id="nameUser" v-model="userData.nameUser" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="nickname">Usuario:</label>
-          <input type="text" id="nickname" v-model="userData.nickname" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="phoneUser">Teléfono:</label>
-          <input type="text" id="phoneUser" v-model="userData.phoneUser" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="passwordUser">Contraseña:</label>
-          <input type="password" id="passwordUser" v-model="userData.passwordUser" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="documentUser">Documento:</label>
-          <input type="text" id="documentUser" v-model="userData.documentUser" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="positionUser">Posición:</label>
-          <input type="text" id="positionUser" v-model="userData.positionUser" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="userType">Tipo de Usuario (int):</label>
-          <input type="number" id="userType" v-model="userData.userType" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label for="userEntityId">ID de Entidad (int):</label>
-          <input type="number" id="userEntityId" v-model="userData.userEntityId" class="form-control" required>
-        </div>
-        <div class="text-center">
+  <div class="container mt-5">
+    <h2 class="text-center">Crear Servicio</h2>
+    <form @submit.prevent="CrearServicio" class="mt-4">
+      <div class="form-group">
+        <label for="nameService">Nombre del Servicio:</label>
+        <input type="text" id="nameService" class="form-control" v-model="serviceData.nameService" required>
+      </div>
+      <div class="form-group">
+        <label for="descriptionService">Descripción del Servicio:</label>
+            <input type="text" id="descriptionService" class="form-control" v-model="serviceData.descriptionService" required>
+      </div>
+      <div class="form-group">
+        <label for="entityIdService">ID de Entidad (int):</label>
+            <input type="number" id="entityIdService" class="form-control" v-model="serviceData.entityIdService" required>
+      </div>
+      <div class="text-center">
           <button type="submit" class="btn btn-primary">Aceptar</button>
-        </div>
-      </form>
-    </div>
-  </template>
+      </div>
+    </form>
+    <div v-if="mensaje" class="alert alert-success mt-3">{{ mensaje }}</div>
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      serviceData: {
+        nameService: '',
+        descriptionService: '',
+        entityIdService: 0, 
+      },
+      tna: 5,
+    };
+  },
+  methods: {
+    CrearServicio() {
+      // Construye la URL y los parámetros de la solicitud
+      const url = 'https://redb.qsystems.co/QS3100/QServlet';
+      const params = new URLSearchParams();
+      params.append('operation', 'SaveService');
+      params.append('nameService', this.serviceData.nameService);
+      params.append('descriptionService', this.serviceData.descriptionService);
+      params.append('entityIdService', this.serviceData.entityIdService);
+      params.append('tna', this.tna);
+      params.append('key', 'e35d751c-12a8-4789-91d0-a95f055f0630');
+
+      // Envía la solicitud POST al servidor
+      axios
+        .post(url, params)
+        .then((response) => {
+          if (response.data.error != undefined && response.data.error != '') {
+            alert(response.data.error);
+          } else {
+            if (response.data.valid) {
+              this.data = response.data.arrayService;
+              alert('Servicio creado con éxito'); // Muestra un mensaje de éxito
+            }
+          }
+        })
+        .catch((error) => {
+          alert(error);
+        });
+    },
+  },
+};
+</script>
+
+<style scoped>
+.form-group {
+  margin-bottom: 20px;
+}
+</style>

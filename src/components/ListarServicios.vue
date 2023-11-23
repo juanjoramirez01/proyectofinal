@@ -71,15 +71,15 @@ export default {
 
   methods: {
     consultarServicios() {
-    // Realiza la solicitud para obtener la lista de usuarios
-    fetch(`https://redb.qsystems.co/QS3100/QServlet?operation=queryServicesByEntity&tna=5&key=e35d751c-12a8-4789-91d0-a95f055f0630&userEntityId=${this.entityData.idEntity}`, {
+    // Realiza la solicitud para obtener la lista de servicios
+    fetch(`https://redb.qsystems.co/QS3100/QServlet?operation=queryServiceByEntity&tna=5&key=e35d751c-12a8-4789-91d0-a95f055f0630&entityIdService=${this.entityData.idEntity}`, {
     method: 'GET',
   })
 
     .then((response) => response.json())
     .then((data) => {
       
-      if (data.arrayUser) {
+      if (data.arrayService) {
         this.servicios = data.arrayService;
       } else {
         console.error('La respuesta del servidor no contiene el campo "arrayService".', data);
@@ -102,13 +102,13 @@ export default {
     },
     editServicio(id) {
       // Redirige a la vista de edición y pasa el ID como parámetro
-      this.$router.push({ name: 'editarservicio', params: { idServicio: id } });
+      this.$router.push({ name: 'editarservicio', params: { idService: id } });
     },
     
     async borrarServicio(idService) {
     try {
     // Construye la URL de eliminación con el ID del servicio
-    const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=DeleteService&idEntity=${idService}&key=e35d751c-12a8-4789-91d0-a95f055f0630`;
+    const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=DeleteService&idService=${idService}&key=e35d751c-12a8-4789-91d0-a95f055f0630`;
 
     
     const response = await axios.get(url);
@@ -117,7 +117,7 @@ export default {
     console.log('Respuesta del servidor:', response.data);
     alert('Servicio eliminado exitosamente');
   
-    // Elimina la entidad de la lista local
+    // Elimina el servicio de la lista local
     const index = this.servicios.findIndex((servicio) => servicio.id === idService);
     if (index !== -1) {
     this.servicios.splice(index, 1);

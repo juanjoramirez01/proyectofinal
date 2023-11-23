@@ -44,7 +44,7 @@ export default {
     async submitForm() {
       try {
         // Construye la URL con los datos del formulario
-        const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=SaveEntity&key=e35d751c-12a8-4789-91d0-a95f055f0630&nameEntity=${this.entityData.nameEntity}&phoneEntity=${this.entityData.phoneEntity}&adressEntity=${this.entityData.addressEntity}&idEntity=${this.entityData.idEntity}`;
+        const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=SaveEntity&key=e35d751c-12a8-4789-91d0-a95f055f0630&nameEntity=${this.entityData.nameEntity}&phoneEntity=${this.entityData.phoneEntity}&adressEntity=${this.entityData.addressEntity}`;
 
         const response = await axios.get(url);
 

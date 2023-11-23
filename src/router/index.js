@@ -16,8 +16,10 @@ import EditarUsuario from '../components/EditarUsuarios.vue'
 import AllUsers from '../components/AllUsers.vue'
 import AllServices from '../components/AllServices.vue'
 import Autoevaluacion from '../views/UserView.vue'
-
-
+import CrearEstandares from '../components/CrearEstandares.vue'
+import ListarEstandares from '../components/ListarEstandares.vue'
+import CrearCriterios from '../components/CrearCriterios.vue'
+import ListarCriterios  from '../components/ListarCriterios.vue'
 
 const routes = [
   {
@@ -110,6 +112,26 @@ const routes = [
     path: '/crearusuarios',
     name: 'crearusuarios',
     component: CrearUsuarios
+  },
+  {
+    path: '/crearestandares',
+    name: 'crearestandares',
+    component: CrearEstandares
+  },
+  {
+    path: '/listarestandares',
+    name: 'listarestandares',
+    component: ListarEstandares
+  },
+  {
+    path: '/crearcriterios',
+    name: 'crearcriterios',
+    component: CrearCriterios
+  },
+  {
+    path: '/listarcriterios',
+    name: 'listarcriterios',
+    component: ListarCriterios
   },
   {
     path: '/about',

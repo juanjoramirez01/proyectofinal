@@ -35,9 +35,10 @@
         <input type="number" id="userEntityId" v-model="userData.userEntityId" class="form-control" required>
       </div>
       <div class="text-center">
-        <button type="submit" class="btn btn-primary">Aceptar</button>
+          <button type="submit" class="btn btn-primary">Aceptar</button>
       </div>
     </form>
+    <div v-if="mensaje" class="alert alert-success mt-3">{{ mensaje }}</div>
   </div>
 </template>
 
