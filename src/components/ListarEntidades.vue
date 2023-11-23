@@ -101,6 +101,20 @@ export default {
     goToPage(page) {
       this.currentPage = page;
     },
+
+    consultarEntidades() {
+      // Realiza la solicitud para obtener la lista de entidades
+      fetch('https://redb.qsystems.co/QS3100/QServlet?operation=queryEntityByTenancy&tna=5&key=e35d751c-12a8-4789-91d0-a95f055f0630', {
+        method: 'GET',
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          this.entidades = data.arrayEntity;
+        })
+        .catch((error) => {
+          console.error('Error al cargar la lista de entidades:', error);
+        });
+    },
   
     confirmDelete(id) {
       const entidadToDelete = this.entidades.find((entidad) => entidad.id === id);
