@@ -7,8 +7,18 @@
         <router-link to="/listarusuarios">Usuarios</router-link>
 
         <router-link to="/listarservicios">Servicios</router-link>
+
+        <router-link to="/listarestandares">Estandares</router-link>
+
+        <router-link to="/listarcriterios">Criterios</router-link>
+
+        <router-link to="/crearestandares">Crear estandares</router-link>
+
+        <router-link to="/crearcriterios">Crear criterios</router-link>
         
         <router-link to="/">Login</router-link>
+
+
 
       </nav>
     </div>
