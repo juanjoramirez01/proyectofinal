@@ -65,7 +65,9 @@ export default {
                   } else {
                     if (response.data.valid) {
                       this.data = response.data.userVO;
+                      this.entityID = response.data.userVO.entityID
                       console.log(this.data)
+                      console.log(this.entityID)
                       if (response.data.message=='Usuario logueado exitosamente'){
                         alert('Usuario logueado exitosamente'); 
                         const userType = this.data.userType;
@@ -73,23 +75,23 @@ export default {
                         let homeRouteName;
                         switch (userType) {
                           case 0:
-                            homeRouteName = 'Home';
+                            homeRouteName = 'home';
                             break;
                           case 1:
-                            homeRouteName = 'AdminHome';
+                            homeRouteName = 'adminhome';
                             break;
                           case 2:
-                            homeRouteName = 'UserHome';
+                            homeRouteName = 'userhome';
                             break;
                           case 3:
-                            homeRouteName = 'AuditorHome';
+                            homeRouteName = 'auditorhome';
                             break;
                           default:
                             // Handle other cases or provide a default route
                             homeRouteName = 'HomeView';
                         }
 
-                      this.$router.push({ name: homeRouteName});
+                      this.$router.push({ name: homeRouteName, params: { idEntity: this.entityID } });
                     } else {
                       this.error = true;
                       this.error_msg = response.data.error_msg;

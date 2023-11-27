@@ -7,6 +7,7 @@ import ListarUsuarios from '../components/ListarUsuarios.vue'
 import CrearUsuarios from '../components/CrearUsuarios.vue'
 import CrearServicios from '../components/CrearServicios.vue'
 import EditarEntidad from '../components/EditarEntidad.vue'
+import SuperAdminHome from '../components/SuperAdminHome.vue'
 import AdminHome from '../components/AdminHome.vue'
 import UserHome from '../components/UserHome.vue'
 import AuditorHome from '../components/AuditorHome.vue'
@@ -56,17 +57,22 @@ const routes = [
     component: AllCriteria
   },
   {
-    path: '/adminHome',
+    path: '/home',
+    name: 'superadminhome',
+    component: SuperAdminHome
+  },
+  {
+    path: '/adminhome',
     name: 'adminhome',
     component: AdminHome
   },
   {
-    path: '/userHome',
+    path: '/userhome',
     name: 'userhome',
     component: UserHome
   },
   {
-    path: '/auditorHome',
+    path: '/auditorhome',
     name: 'auditorhome',
     component: AuditorHome
   },
@@ -174,14 +180,6 @@ const routes = [
     name: 'dashboard',
     component: DashBoard
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
 ]
 
 const router = createRouter({
