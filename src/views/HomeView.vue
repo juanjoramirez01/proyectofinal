@@ -73,7 +73,7 @@ export default {
                         let homeRouteName;
                         switch (userType) {
                           case 0:
-                            homeRouteName = 'SuperAdminHome';
+                            homeRouteName = 'Home';
                             break;
                           case 1:
                             homeRouteName = 'AdminHome';
@@ -89,7 +89,7 @@ export default {
                             homeRouteName = 'HomeView';
                         }
 
-                      this.$router.push({ name: homeRouteName, params: { serviceIdStandard: idService, idStandard: id }  });
+                      this.$router.push({ name: homeRouteName});
                     } else {
                       this.error = true;
                       this.error_msg = response.data.error_msg;
