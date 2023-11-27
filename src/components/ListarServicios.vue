@@ -1,4 +1,3 @@
-
 <template>
   <div class="container">
     <div class="card">
@@ -23,7 +22,6 @@
               <td>
                 <button @click="editServicio(servicio.id)">Editar</button>
                 <button @click="confirmDelete(servicio.id)">Eliminar</button>
-                <!-- Agrega más botones según sea necesario -->
               </td>
             </tr>
           </tbody>
@@ -47,8 +45,8 @@ export default {
       currentPage: 1,
       itemsPerPage: 10,
       entityData: {
-      idEntity: this.$route.params.idEntity,
-    },
+        idEntity: this.$route.params.idEntity,
+      },
 
     };
   },
@@ -78,7 +76,7 @@ export default {
 
     .then((response) => response.json())
     .then((data) => {
-      
+      console.log('Data recibida:', data);
       if (data.arrayService) {
         this.servicios = data.arrayService;
       } else {

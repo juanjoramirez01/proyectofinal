@@ -11,15 +11,23 @@ import AdminHome from '../components/AdminHome.vue'
 import UserHome from '../components/UserHome.vue'
 import AuditorHome from '../components/AuditorHome.vue'
 import ListarServicios from '../components/ListarServicios.vue'
+import EditarServicio from '../components/EditarServicio.vue'
 import LoginForm from '../components/LoginForm.vue'
 import EditarUsuario from '../components/EditarUsuarios.vue'
 import AllUsers from '../components/AllUsers.vue'
 import AllServices from '../components/AllServices.vue'
+import AllStandard from '../components/AllStandard.vue'
+import AllCriteria from '../components/AllCriteria.vue'
 import Autoevaluacion from '../views/UserView.vue'
 import CrearEstandares from '../components/CrearEstandares.vue'
 import ListarEstandares from '../components/ListarEstandares.vue'
+import EditarEstandar from '../components/EditarEstandar.vue'
 import CrearCriterios from '../components/CrearCriterios.vue'
 import ListarCriterios  from '../components/ListarCriterios.vue'
+import EditarCriterio from '../components/EditarCriterio.vue'
+import CumplimientosTable from '../components/CumplimientosTable.vue'
+import EstadoChart from '../components/EstadoChart.vue'
+import DashBoard from '../components/DashBoard.vue'
 
 const routes = [
   {
@@ -36,6 +44,16 @@ const routes = [
     path: '/listarservicios',
     name: 'servicios',
     component: AllServices
+  },
+  {
+    path: '/listarestandares',
+    name: 'estandares',
+    component: AllStandard
+  },
+  {
+    path: '/listarcriterios',
+    name: 'criterios',
+    component: AllCriteria
   },
   {
     path: '/adminHome',
@@ -91,17 +109,25 @@ const routes = [
     component: EditarUsuario
   },
   {
+    path: '/editarservicio/:entityIdService/:idService',
+    name: 'editarservicio',
+    component: EditarServicio
+  },
+  {
+    path: '/editarestandar/:serviceIdStandard/:idStandard',
+    name: 'editarestandar',
+    component: EditarEstandar
+  },
+  {
+    path: '/editarcriterio/:serviceIdCriteria/:idCriteria',
+    name: 'editarcriterio',
+    component: EditarCriterio
+  },
+  {
     path: '/login',
     name: 'login',
     component: LoginForm
   },
-
-  {
-    path: '/listarservicios',
-    name: 'listarservicios',
-    component: ListarServicios
-  },
-
 
   {
     path: '/listarentidades',
@@ -119,7 +145,7 @@ const routes = [
     component: CrearEstandares
   },
   {
-    path: '/listarestandares',
+    path: '/listarestandares/:idService',
     name: 'listarestandares',
     component: ListarEstandares
   },
@@ -129,9 +155,24 @@ const routes = [
     component: CrearCriterios
   },
   {
-    path: '/listarcriterios',
+    path: '/listarcriterios/:idService',
     name: 'listarcriterios',
     component: ListarCriterios
+  },
+  {
+    path: '/cumplimientostable/',
+    name: 'cumplimientostable',
+    component: CumplimientosTable
+  },
+  {
+    path: '/estadochart/',
+    name: 'estadochart',
+    component: EstadoChart
+  },
+  {
+    path: '/dashboard/',
+    name: 'dashboard',
+    component: DashBoard
   },
   {
     path: '/about',

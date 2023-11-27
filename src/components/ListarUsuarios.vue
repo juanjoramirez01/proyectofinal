@@ -12,6 +12,7 @@
               <th>Nombre</th>
               <th>Teléfono</th>
               <th>Posición</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>

@@ -149,7 +149,7 @@
         }
       },
       agregarUsuario() {
-        this.$router.push({ name: 'crearusuario' });
+        this.$router.push({ name: 'crearusuarios' });
       },
       editUsuario(id, entityId) {
       console.log('editUsuario method called with entityId:', entityId, 'and id:', id);

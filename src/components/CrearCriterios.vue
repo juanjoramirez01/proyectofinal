@@ -4,7 +4,7 @@
       <form @submit.prevent="CrearCriterio" class="mt-4">
         <div class="form-group">
           <label for="descriptionCriteria">Descripción del criterio:</label>
-          <input type="password" id="descriptionCriteria" v-model="criteriaData.descriptionCriteria" class="form-control" required>
+          <input type="text" id="descriptionCriteria" v-model="criteriaData.descriptionCriteria" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="answerCriteria">Respuesta del criterio:</label>
