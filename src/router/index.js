@@ -57,12 +57,12 @@ const routes = [
     component: AllCriteria
   },
   {
-    path: '/home',
+    path: '/superadminhome',
     name: 'superadminhome',
     component: SuperAdminHome
   },
   {
-    path: '/adminhome',
+    path: '/adminhome/:idEntity',
     name: 'adminhome',
     component: AdminHome
   },

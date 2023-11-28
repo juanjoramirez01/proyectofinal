@@ -75,7 +75,7 @@ export default {
                         let homeRouteName;
                         switch (userType) {
                           case 0:
-                            homeRouteName = 'home';
+                            homeRouteName = 'superadminhome';
                             break;
                           case 1:
                             homeRouteName = 'adminhome';

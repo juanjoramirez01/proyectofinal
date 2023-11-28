@@ -1,10 +1,11 @@
 <template>
+    <p>User ID: {{ $route.params.idEntity }}</p>
     <div id="app">
       <div class="sidebar">
         <nav>
-          <router-link to="/listarusuarios/:idEntity">Usuarios</router-link>
+          <router-link :to="{ name: 'listarusuarios', params: { idEntity: this.$route.params.idEntity } }">Usuarios</router-link>
   
-          <router-link to="/listarservicios/:idEntity">Servicios</router-link>
+          <router-link :to="{ name: 'listarservicios', params: { idEntity: this.$route.params.idEntity } }">Servicios</router-link>
   
           <router-link to="/listarestandares">Estandares</router-link>
   
