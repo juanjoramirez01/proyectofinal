@@ -1,19 +1,20 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import HomeView from '../views/HomeView.vue'
+//import SuperadminLayout from '../components/SuperadminLayout.vue';
+//import HomeView from '../views/HomeView.vue'
 import CrearEntidades from '../components/CrearEntidades.vue'
 import ListarEntidades from '../components/ListarEntidades.vue'
 import ListarUsuarios from '../components/ListarUsuarios.vue'
 import CrearUsuarios from '../components/CrearUsuarios.vue'
 import CrearServicios from '../components/CrearServicios.vue'
 import EditarEntidad from '../components/EditarEntidad.vue'
-import SuperAdminHome from '../components/SuperAdminHome.vue'
+import SuperAdminHome from '../views/SuperAdminHome.vue'
 import AdminHome from '../components/AdminHome.vue'
 import UserHome from '../components/UserHome.vue'
 import AuditorHome from '../components/AuditorHome.vue'
 import ListarServicios from '../components/ListarServicios.vue'
 import EditarServicio from '../components/EditarServicio.vue'
-import LoginForm from '../components/LoginForm.vue'
+
 import EditarUsuario from '../components/EditarUsuarios.vue'
 import AllUsers from '../components/AllUsers.vue'
 import AllServices from '../components/AllServices.vue'
@@ -29,12 +30,14 @@ import EditarCriterio from '../components/EditarCriterio.vue'
 import CumplimientosTable from '../components/CumplimientosTable.vue'
 import EstadoChart from '../components/EstadoChart.vue'
 import DashBoard from '../components/DashBoard.vue'
+import Login from '../views/LoginView.vue'
 
 const routes = [
+
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Login',
+    component: Login
   },
   {
     path: '/listarusuarios',
@@ -129,12 +132,7 @@ const routes = [
     name: 'editarcriterio',
     component: EditarCriterio
   },
-  {
-    path: '/login',
-    name: 'login',
-    component: LoginForm
-  },
-
+  
   {
     path: '/listarentidades',
     name: 'listarentidades',

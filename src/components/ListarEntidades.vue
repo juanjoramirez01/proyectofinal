@@ -1,9 +1,6 @@
 <template>
   <div class="container">
     <div class="card">
-      <div class="card-header">
-        Lista de Entidades
-      </div>
       <div class="card-body">
         <table class="table">
           <thead>
@@ -33,7 +30,8 @@
         </table>
       </div>
       <div class="card-footer">
-        <button @click="agregarEntidad" class="btn btn-primary">+ Agregar entidad</button>
+        <div>
+        
         <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center d-flex">
             <li class="page-item" :class="{ disabled: currentPage === 1 }">
@@ -53,6 +51,7 @@
             </li>
           </ul>
         </nav>
+      </div>
       </div>
     </div>
   </div>
@@ -172,15 +171,30 @@ export default {
 <style scoped>
 /* Estilos adicionales personalizables aquí */
 .pagination .page-item:not(.disabled) .page-link {
-  background-color: #42b983;
-  border-color: #42b983;
-  color: #000; /* Cambiar el color del texto a negro */
+  background-color: #2268A5;
+  border-color:#2268A5;
+  color: #fff; /* Cambiar el color del texto a negro */
   cursor: pointer; /* Cambiar el cursor al estilo de enlace */
 }
 
 .pagination .page-item:not(.disabled) .page-link:hover .button-custom{
-  background-color: #42b983; /* Cambiar el color de fondo al pasar el cursor */
+  background-color: #2268A5; 
+  border-color:#2268A5;/* Cambiar el color de fondo al pasar el cursor */
   color: #fff; /* Cambiar el color del texto al pasar el cursor */
 }
+.btn {
+  background-color: #2268A5;
+  border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+
 
 </style>

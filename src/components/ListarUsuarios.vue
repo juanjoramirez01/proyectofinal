@@ -1,8 +1,11 @@
 <template>
+  <div>
+    <SidebarComp/>
+  </div>
   <div class="container">
     <div class="card">
       <div class="card-header">
-        Lista de Usuarios
+        Usuarios
       </div>
       <div class="card-body">
         <table class="table">
@@ -57,8 +60,14 @@
 
 <script>
 import axios from 'axios';
+import SidebarComp from '../components/SidebarComp.vue'; 
+//import ListarUsuarios from 
+
 
 export default {
+  components: {
+    SidebarComp,
+  }, 
   data() {
     return {
       usuarios: [],
@@ -177,14 +186,14 @@ export default {
 <style scoped>
 /* Estilos adicionales personalizables aquí */
 .pagination .page-item:not(.disabled) .page-link {
-  background-color: #42b983;
-  border-color: #42b983;
+  background-color: #2268A5;
+  border-color: #2268A5;
   color: #000; /* Cambiar el color del texto a negro */
   cursor: pointer; /* Cambiar el cursor al estilo de enlace */
 }
 
 .pagination .page-item:not(.disabled) .page-link:hover .button-custom{
-  background-color: #42b983; /* Cambiar el color de fondo al pasar el cursor */
+  background-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
   color: #fff; /* Cambiar el color del texto al pasar el cursor */
 }
 </style>

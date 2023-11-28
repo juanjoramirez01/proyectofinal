@@ -1,19 +1,19 @@
 <template>
-  <div class="container">
+  <div class="container mt-5">
     <div class="row justify-content-center">
-      <div class="col-md-8">
+      <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            Login
+            <h2 class="text-center">Bienvenido!</h2>
           </div>
           <div class="card-body">
             <form @submit.prevent="submitForm">
-              <div class="form-group">
-                <label for="nickname">Usuario</label>
+              <div class="mb-3">
+                <label for="nickname" class="form-label">Usuario</label>
                 <input type="text" class="form-control" id="nickname" v-model="userData.nickname" required>
               </div>
-              <div class="form-group">
-                <label for="password">Contraseña</label>
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
                 <input type="password" class="form-control" id="password" v-model="userData.passwordUser" required>
               </div>
               <button type="submit" class="btn btn-primary">Ingresar</button>
@@ -25,12 +25,12 @@
   </div>
 </template>
 
-
-
 <script>
 import axios from 'axios';
 
+
 export default {
+
     data() {
       return {
         userData: {
@@ -69,7 +69,7 @@ export default {
                       console.log(this.data)
                       console.log(this.entityID)
                       if (response.data.message=='Usuario logueado exitosamente'){
-                        alert('Usuario logueado exitosamente'); 
+                        //alert('Usuario logueado exitosamente'); 
                         const userType = this.data.userType;
                         console.log(userType)
                         let homeRouteName;
@@ -108,3 +108,14 @@ export default {
   },
 };
 </script>
+
+<style>
+.centered-component {
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -50px; /* Ajusta este valor según el espacio deseado entre el componente y el margen superior */
+}
+</style>
