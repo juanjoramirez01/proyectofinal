@@ -1,7 +1,4 @@
 <template>
-  <div>
-    <SidebarComp/>
-  </div>
   <div class="container">
     <div class="card">
       <div class="card-header">
@@ -33,7 +30,10 @@
         </table>
       </div>
       <div class="card-footer">
-        <button @click="agregarUsuario" class="btn btn-primary">+ Agregar usuario</button>
+        
+          <button @click="agregarUsuario" class="btn btn-primary">+ Agregar usuario</button>
+        
+        
         <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center d-flex">
             <li class="page-item" :class="{ disabled: currentPage === 1 }">
@@ -60,14 +60,12 @@
 
 <script>
 import axios from 'axios';
-import SidebarComp from '../components/SidebarComp.vue'; 
+//import SidebarComp from '../components/SidebarComp.vue'; 
 //import ListarUsuarios from 
 
 
 export default {
-  components: {
-    SidebarComp,
-  }, 
+  
   data() {
     return {
       usuarios: [],

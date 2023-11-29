@@ -1,23 +1,33 @@
 <template>
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="text-center">Bienvenido!</h2>
+ 
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <div class="logo text-center mb-4">
+            <img src="@/assets/logocodewave.jpeg" alt="Logo de CodeWave">
           </div>
-          <div class="card-body">
-            <form @submit.prevent="submitForm">
-              <div class="mb-3">
-                <label for="nickname" class="form-label">Usuario</label>
-                <input type="text" class="form-control" id="nickname" v-model="userData.nickname" required>
+          <div class="card">
+            <div class="login-container" style="background-image: url('@/assets/fondologin.jpg');">
+            <div class="card-header">
+
+              <h2 class="text-center">Bienvenido!</h2>
+            </div>
+            <div class="card-body">
+              <form @submit.prevent="submitForm">
+                <div class="mb-3">
+                  <label for="nickname" class="form-label">Usuario</label>
+                  <input type="text" class="form-control" id="nickname" v-model="userData.nickname" required>
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" class="form-control" id="password" v-model="userData.passwordUser" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Ingresar</button>
+              </form>
+              <div class="text-center fs-6 mt-3">
+                <a href="#">Recuperar contraseña</a>
               </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" v-model="userData.passwordUser" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Ingresar</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -76,15 +86,19 @@ export default {
                         switch (userType) {
                           case 0:
                             homeRouteName = 'superadminhome';
+                            this.$store.commit('setRoleStatus', { role: 'isSuperAdmin', status: true });
                             break;
                           case 1:
                             homeRouteName = 'adminhome';
+                            this.$store.commit('setRoleStatus', { role: 'isAdmin', status: true });
                             break;
                           case 2:
                             homeRouteName = 'userhome';
+                            this.$store.commit('setRoleStatus', { role: 'isUser', status: true });
                             break;
                           case 3:
                             homeRouteName = 'auditorhome';
+                            this.$store.commit('setRoleStatus', { role: 'isSuperAdmin', status: true });
                             break;
                           default:
                             // Handle other cases or provide a default route
@@ -118,4 +132,27 @@ export default {
   transform: translate(-50%, -50%);
   margin-top: -50px; /* Ajusta este valor según el espacio deseado entre el componente y el margen superior */
 }
+
+.btn btn-primary{
+  
+  background: #2268A5;
+  color: #ffffff;
+  
+}
+
+
+.login-container {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega sombra al contenedor */
+  padding: 20px; /* Agrega espacio interior al contenedor */
+}
+
+.card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega sombra a la tarjeta */
+}
+
+.logo {
+  /* Estilos para el logo si es necesario */
+}
+
+
 </style>

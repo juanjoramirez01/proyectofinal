@@ -1,15 +1,26 @@
 <template>
   <div id="app">
-    <!-- RouterView para cargar dinámicamente las vistas según la ruta -->
     <router-view />
+
+    <!-- Renderizar SidebarComp solo si el usuario es administrador -->
+    <SidebarComp v-if="isAdmin" />
   </div>
 </template>
 
 <script>
+import SidebarComp from './components/SidebarComp.vue';
+
 export default {
   name: 'App',
-}
+  computed: {
+    isAdmin() {
+      SidebarComp
+      return this.$store.state.isAdmin;
+    },
+  },
+};
 </script>
+
 
 <style>
 

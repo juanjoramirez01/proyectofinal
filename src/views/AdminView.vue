@@ -2,7 +2,7 @@
   <div id="app">
     <div class="sidebar">
       <nav>
-        <router-link to="/listarentidades">Entidades</router-link>
+        <router-link to="/listarentidades">Entidades de Admin</router-link>
         
         <router-link to="/listarusuarios">Usuarios</router-link>
 

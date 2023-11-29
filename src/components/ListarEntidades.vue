@@ -23,39 +23,42 @@
                 <button @click="confirmDelete(entidad.id)">Eliminar</button>
                 <button @click="Usuarios(entidad.id)">Usuarios</button>
                 <button @click="Servicios(entidad.id)">Servicios</button>
-
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="card-footer">
-        <div>
-        
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center d-flex">
-            <li class="page-item" :class="{ disabled: currentPage === 1 }">
-              <a class="page-link" @click="previousPage" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only"></span>
-              </a>
-            </li>
-            <li v-for="page in totalPages" :key="page" class="page-item" :class="{ active: currentPage === page }">
-              <a class="page-link" @click="goToPage(page)">{{ page }}</a>
-            </li>
-            <li class="page-item" :class="{ disabled: currentPage === totalPages }">
-              <a class="page-link" @click="nextPage" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only"></span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+        <div aria-label="First group">
+          <button @click="agregarEntidad" class="btn btn-primary">+ Agregar entidad</button>
+          
+        </div>
+        <div class="pagination-container">
+          <nav aria-label="Second group">
+            <ul class="pagination justify-content-center">
+              <li class="page-item" :class="{ disabled: currentPage === 1 }">
+                <a class="page-link" @click="previousPage" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only"></span>
+                </a>
+              </li>
+              <li v-for="page in totalPages" :key="page" class="page-item" :class="{ active: currentPage === page }">
+                <a class="page-link" @click="goToPage(page)">{{ page }}</a>
+              </li>
+              <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+                <a class="page-link" @click="nextPage" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only"></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
 </template>
+    
 
 <script>
 import axios from 'axios';
@@ -169,7 +172,7 @@ export default {
 </script>
 
 <style scoped>
-/* Estilos adicionales personalizables aquí */
+
 .pagination .page-item:not(.disabled) .page-link {
   background-color: #2268A5;
   border-color:#2268A5;
@@ -182,6 +185,7 @@ export default {
   border-color:#2268A5;/* Cambiar el color de fondo al pasar el cursor */
   color: #fff; /* Cambiar el color del texto al pasar el cursor */
 }
+
 .btn {
   background-color: #2268A5;
   border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
@@ -190,11 +194,42 @@ export default {
 
 .card-body {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
+.button .button-custom{
+  background-color: #2268A5;
+  border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
+}
 
+.btn .btn-primary
+{
+  background-color: #2268A5;
+  border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  align-self: flex-start;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.pagination {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Alinea la paginación al centro */
+  align-items: center;
+}
 
 
 </style>

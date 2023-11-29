@@ -1,80 +1,63 @@
 <template>
-    <p>User ID: {{ $route.params.idEntity }}</p>
-    <div id="app">
-      <div class="sidebar">
-        <nav>
-          <router-link :to="{ name: 'listarusuarios', params: { idEntity: this.$route.params.idEntity } }">Usuarios</router-link>
-  
-          <router-link :to="{ name: 'listarservicios', params: { idEntity: this.$route.params.idEntity } }">Servicios</router-link>
-  
-          <router-link to="/listarestandares">Estandares</router-link>
-  
-          <router-link to="/listarcriterios">Criterios</router-link>
-  
-          <router-link to="/crearestandares">Crear estandares</router-link>
-  
-          <router-link to="/crearcriterios">Crear criterios</router-link>
-          
-          <router-link to="/">Login</router-link>
-  
-  
-  
-        </nav>
-      </div>
+  <div>
+    <SidebarAdmin @usuarios="Usuarios" @servicios="Servicios" />
+    <div class="container">
+      <ListarUsuarios />
     </div>
-  </template>
-  
-  <script>
-  export default {
-    data() {
-      return {
-        entityData: {
-          idEntity: this.$route.params.idEntity,
-        },
-      };
-    } 
-  }
-  </script>
+  </div>
+</template>
 
-  <style>
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    display: flex; /* Utilizamos flexbox para organizar los elementos */
-    height: 100vh; /* Hacemos que la altura ocupe toda la ventana */
-    margin: 0;
-  }
-  
-  .sidebar {
-    background-color: #42b983;
-    padding: 20px;
-    min-width: 200px; /* Define el ancho mínimo del panel */
-  }
-  
-  nav {
-    display: flex;
-    flex-direction: column; /* Hacemos que los enlaces estén en una columna */
-  }
-  
-  nav a {
-    font-weight: bold;
-    color: #fff; /* Texto en color blanco */
-    text-decoration: none; /* Quita el subrayado de los enlaces */
-    padding: 5px 0;
-  }
-  
-  nav a.router-link-exact-active {
-    background-color: #2c3e50; /* Color de fondo para el enlace activo */
-  }
-  
-  .content {
-    flex-grow: 1; /* Hace que el contenido ocupe el espacio restante */
-    padding: 20px;
-    color: #2c3e50;
-    width: 200vh; /* Hacemos que el ancho se ajuste */
-  }
-  
-  
-  
-  </style>
-  
-  
+<script>
+import SidebarAdmin from '../components/SidebarAdmin.vue';
+import ListarUsuarios from '../components/ListarUsuarios.vue';
+
+export default {
+  components: {
+    SidebarAdmin,
+    ListarUsuarios,
+  },
+  methods: {
+    Usuarios(id) {
+      // Redirigir a la vista de listar usuarios y pasar el ID como parámetro
+      this.$router.push({ name: 'listarusuarios', params: { idEntity: id } });
+    },
+    Servicios(id) {
+      // Redirigir a la vista de listar servicios y pasar el ID como parámetro
+      this.$router.push({ name: 'listarservicios', params: { idEntity: id } });
+    },
+  },
+};
+</script>
+
+<style>
+#app {
+font-family: 'Arial', sans-serif;
+margin: 0;
+/*padding: 0;*/
+height: 100vh;
+}
+
+.container {
+display: flex;
+height: 100%; /* Utilizamos flexbox para la disposición en fila */
+}
+
+/* Estilos específicos para la barra lateral */
+.sidebar {
+width: 200px; /* Ajusta el ancho según tus necesidades */
+background-color:#2268A5; /* Color de fondo de la barra lateral */
+color: #fff; /* Color de texto en la barra lateral */
+}
+
+/* Estilos específicos para el contenido principal */
+.list-entidades {
+flex: 1; /* Hace que el contenido principal ocupe el espacio restante */
+}
+
+.button-custom{
+background: #2268A5;
+color: #ffffff;
+
+}
+
+</style>

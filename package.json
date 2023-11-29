@@ -13,9 +13,11 @@
     "bootstrap-vue": "^2.23.1",
     "chart.js": "^4.4.0",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13",
+    "vue": "^3.3.9",
     "vue-router": "^4.2.5",
-    "vue-toasted": "^1.1.28"
+    "vue-toasted": "^1.1.28",
+    "vuex": "^4.1.0",
+    "vuw": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

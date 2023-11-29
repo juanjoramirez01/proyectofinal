@@ -14,7 +14,7 @@ import UserHome from '../components/UserHome.vue'
 import AuditorHome from '../components/AuditorHome.vue'
 import ListarServicios from '../components/ListarServicios.vue'
 import EditarServicio from '../components/EditarServicio.vue'
-
+//import SidebarAdmin from '../components/SidebarAdmin.vue'
 import EditarUsuario from '../components/EditarUsuarios.vue'
 import AllUsers from '../components/AllUsers.vue'
 import AllServices from '../components/AllServices.vue'
@@ -32,6 +32,9 @@ import EstadoChart from '../components/EstadoChart.vue'
 import DashBoard from '../components/DashBoard.vue'
 import Login from '../views/LoginView.vue'
 
+
+
+
 const routes = [
 
   {
@@ -39,6 +42,30 @@ const routes = [
     name: 'Login',
     component: Login
   },
+  {
+    path: '/adminhome',
+    component: AdminHome, 
+    name: 'adminhome',
+    children: [
+
+      {
+        path: '/listarusuarios/',
+        name: 'listarusuarios',
+        component: ListarUsuarios
+      },
+      {
+        path: '/listarservicios/',
+        name: 'listarservicios',
+        component: ListarServicios
+      },
+      
+      // Agrega más rutas según sea necesario
+    ],
+  },
+
+
+
+
   {
     path: '/listarusuarios',
     name: 'usuarios',
@@ -64,11 +91,7 @@ const routes = [
     name: 'superadminhome',
     component: SuperAdminHome
   },
-  {
-    path: '/adminhome/:idEntity',
-    name: 'adminhome',
-    component: AdminHome
-  },
+  
   {
     path: '/userhome',
     name: 'userhome',
@@ -82,7 +105,8 @@ const routes = [
   {
     path: '/listarusuarios/:idEntity',
     name: 'listarusuarios',
-    component: ListarUsuarios
+    component: ListarUsuarios,
+    props: true,
   },
   {
     path: '/listarservicios/:idEntity',
