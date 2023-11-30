@@ -17,16 +17,8 @@
         <h2 class="text-center">Auditoría</h2>
         <form @submit.prevent="submitForm" class="mt-4">
             <div class="form-group">
-                <label for="answerCriteria">Respuesta del criterio:</label>
-                <select id="answerCriteria" v-model="criteriaData.answerCriteria" class="form-control" required>
-                    <option value="C">Cumple</option>
-                    <option value="NC">No cumple</option>
-                    <option value="NA">No aplica</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="observationCriteria">Observación del criterio:</label>
-                <input type="text" id="observationCriteria" v-model="criteriaData.observationCriteria" class="form-control" required>
+                <label for="observationCriteriaAuditor">Observación del criterio:</label>
+                <textarea id="observationCriteriaAuditor" v-model="criteriaData.observationCriteriaAuditor" class="form-control" required></textarea>
             </div>
           <button type="submit" class="btn btn-primary">Aceptar</button>
         </form>
@@ -43,9 +35,10 @@
             idCriteria: this.$route.params.idCriteria,
             standardIdCriteria: this.$route.params.standardIdCriteria,
             serviceIdCriteria: this.$route.params.serviceIdCriteria,
-            descriptionCriteria: this.$route.params.descriptionCriteria,
+            descriptionCriteria: '',
             answerCriteria: '',
             observationCriteria: '', 
+            observationCriteriaAuditor: '',
           },
         };
       },
@@ -63,6 +56,7 @@
               descriptionCriteria: this.criteriaData.descriptionCriteria,
               answerCriteria: this.criteriaData.answerCriteria,
               observationCriteria: this.criteriaData.observationCriteria,
+              observationCriteriaAuditor: this.criteriaData.observationCriteriaAuditor,
               idCriteria: this.criteriaData.idCriteria,
               standardIdCriteria: this.criteriaData.standardIdCriteria,
               serviceIdCriteria: this.criteriaData.serviceIdCriteria,
@@ -82,9 +76,10 @@
               idCriteria: this.$route.params.idCriteria,
               standardIdCriteria: this.$route.params.standardIdCriteria,
               serviceIdCriteria: this.$route.params.serviceIdCriteria,
-              descriptionCriteria: this.$route.params.descriptionCriteria,
+              descriptionCriteria: '',
               answerCriteria: '',
               observationCriteria: '',
+              observationCriteriaAuditor: '',
               
             };
           } catch (error) {

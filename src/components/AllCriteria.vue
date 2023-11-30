@@ -35,7 +35,7 @@
             <tr v-for="criterio in paginatedCriterios" :key="criterio.id">
                 <td>{{ criterio.description }}</td>
                 <td>{{ criterio.answer }}</td>
-                <td>{{ criterio.observation }}</td>consultar
+                <td>{{ criterio.observation }}</td>
                 <td>{{ criterio.standardName }}</td>
                 <td>{{ criterio.serviceName }}</td>
                 <td>{{ criterio.entityName }}</td>
