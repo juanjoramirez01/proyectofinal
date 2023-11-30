@@ -46,6 +46,7 @@
           descriptionCriteria: '',
           answerCriteria: '',
           observationCriteria: '', 
+          observationCriteriaAuditor: '',
         },
       };
     },
@@ -63,6 +64,7 @@
             descriptionCriteria: this.criteriaData.descriptionCriteria,
             answerCriteria: this.criteriaData.answerCriteria,
             observationCriteria: this.criteriaData.observationCriteria,
+            observationCriteriaAuditor: this.criteriaData.observationCriteriaAuditor,
             idCriteria: this.criteriaData.idCriteria,
             standardIdCriteria: this.criteriaData.standardIdCriteria,
             serviceIdCriteria: this.criteriaData.serviceIdCriteria,
@@ -85,6 +87,7 @@
             descriptionCriteria: '',
             answerCriteria: '',
             observationCriteria: '',
+            observationCriteriaAuditor: '',
             
           };
         } catch (error) {

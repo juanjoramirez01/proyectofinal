@@ -11,6 +11,7 @@ import EditarEntidad from '../components/EditarEntidad.vue'
 import SuperAdminHome from '../views/SuperAdminHome.vue'
 import AdminHome from '../components/AdminHome.vue'
 import AuditorHome from '../components/AuditorHome.vue'
+import AuditarCriterios from '../components/AuditarCriterios.vue'
 import ListarServicios from '../components/ListarServicios.vue'
 import EditarServicio from '../components/EditarServicio.vue'
 //import SidebarAdmin from '../components/SidebarAdmin.vue'
@@ -114,6 +115,12 @@ const routes = [
     path: '/auditorhome',
     name: 'auditor',
     component: AuditorHome
+  },
+  
+  {
+    path: '/auditar',
+    name: 'auditar',
+    component: AuditarCriterios
   },
   {
     path: '/recuperarcont',

@@ -35,7 +35,7 @@
             <tr v-for="criterio in paginatedCriterios" :key="criterio.id">
                 <td>{{ criterio.description }}</td>
                 <td>{{ criterio.answer }}</td>
-                <td>{{ criterio.observation }}</td>consultar
+                <td>{{ criterio.observation }}</td>
                 <td>{{ criterio.standardName }}</td>
                 <td>{{ criterio.serviceName }}</td>
                 <td>{{ criterio.entityName }}</td>
@@ -99,9 +99,6 @@ export default {
   },
 
   methods: {
-    Auditar(){
-      
-    },
     consultarCriterios() {
       const key = 'e35d751c-12a8-4789-91d0-a95f055f0630';
       const tna = 5;
@@ -180,6 +177,10 @@ export default {
     Archivos(id) {
       // Redirigir a la vista de listar usarios y pasar el ID como parámetro
       this.$router.push({ name: 'listararchivocriterio', params: { idCriteria: id } });
+    },
+    
+    Auditar(id){
+      this.$router.push({ name: 'auditar', params: { idCriteria: id } });
     },
     async borrarCriterio(idCriteria) {
       try {
