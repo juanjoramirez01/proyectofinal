@@ -42,7 +42,7 @@
       </div>
       <div class="form-group">
         <label for="userType">Tipo de Usuario:</label>
-        <select id="userType" class="form-control" required>
+        <select id="userType" v-model="userData.userType" class="form-control" required>
           <option value="1">Administrador</option>
           <option value="2">Usuario</option>
           <option value="3">Auditor</option>

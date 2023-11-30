@@ -31,7 +31,6 @@
           </thead>
           <tbody>
             <tr v-for="usuario in paginatedUsuarios" :key="usuario.id">
-              <td>{{ usuario.id }}</td>
               <td>{{ usuario.name }}</td>
               <td>{{ usuario.nickname }}</td>
               <td>{{ usuario.document }}</td>

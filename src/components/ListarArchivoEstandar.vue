@@ -107,6 +107,27 @@
         }
       },
       // Resto de tus métodos, como editArchivo, confirmDelete, agregarArchivo, etc.
+      confirmDelete(id) {
+        const criterioToDelete = this.archivos.find((archivo) => archivo.id === id);
+        if (archivoToDelete && confirm(`¿Seguro que deseas eliminar el archivo con ID: ${id}?`)) {
+          this.borrarArchivo(archivoToDelete.id);
+        }
+      },
+      async borrarArchivo(idFile) {
+        try {
+          const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=DeleteFile&idFile=${idFile}&key=e35d751c-12a8-4789-91d0-a95f055f0630`;
+          const response = await axios.get(url);
+          console.log('Respuesta del servidor:', response.data);
+          alert('Archivo eliminado con éxito.');
+  
+          const index = this.archivos.findIndex((archivo) => archivo.id === idFile);
+          if (index !== -1) {
+            this.archivos.splice(index, 1);
+          }
+        } catch (error) {
+          console.error('Error al eliminar el archivo:', error);
+        }
+      },
     },
   };
 

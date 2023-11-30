@@ -112,7 +112,7 @@ const routes = [
   
   {
     path: '/auditorhome',
-    name: 'auditorhome',
+    name: 'auditor',
     component: AuditorHome
   },
   {

@@ -41,7 +41,7 @@
                   <td>{{ criterio.entityName }}</td>
                 <td>
                   <button @click="consultarCriterioPorId(criterio.id)">Autoevaluar</button>
-                  <button @click="confirmDelete(criterio.id)">Auditoría</button>
+                  <button @click="Auditor(criterio.id)">Auditoría</button>
                   <button @click="Archivos(criterio.id)">Archivos</button>
                 </td>
               </tr>
@@ -160,11 +160,9 @@
         this.currentPage = page;
       },
   
-      confirmDelete(id) {
-        const criterioToDelete = this.criterios.find((criterio) => criterio.id === id);
-        if (criterioToDelete && confirm(`¿Seguro que deseas eliminar el criterio con ID: ${id}?`)) {
-          this.borrarCriterio(criterioToDelete.id);
-        }
+      Auditor(id) {
+        this.$router.push({ name: 'auditor', params: { idCriteria: id } });
+      
       },
       agregarCriterio() {
         this.$router.push({ name: 'crearcriterios' });
@@ -178,21 +176,6 @@
       Archivos(id) {
         // Redirigir a la vista de listar usarios y pasar el ID como parámetro
         this.$router.push({ name: 'listararchivocriterio', params: { idCriteria: id } });
-      },
-      async borrarCriterio(idCriteria) {
-        try {
-          const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=DeleteCriteria&idCriteria=${idCriteria}&key=e35d751c-12a8-4789-91d0-a95f055f0630`;
-          const response = await axios.get(url);
-          console.log('Respuesta del servidor:', response.data);
-          alert('Criterio eliminado con éxito.');
-  
-          const index = this.criterios.findIndex((criterio) => criterio.id === idCriteria);
-          if (index !== -1) {
-            this.criterios.splice(index, 1);
-          }
-        } catch (error) {
-          console.error('Error al eliminar el criterio:', error);
-        }
       },
     },
   };
