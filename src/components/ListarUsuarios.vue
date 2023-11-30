@@ -45,11 +45,12 @@
         </table>
       </div>
       <div class="card-footer">
-        
+        <div aria-label="First group">
           <button @click="agregarUsuario(entityData.idEntity)" class="btn btn-primary">+ Agregar usuario</button>
         
-        
-        <nav aria-label="Page navigation example">
+        </div>
+        <nav aria-label="pagination-container">
+          <nav aria-label="Second group"></nav>
           <ul class="pagination justify-content-center d-flex">
             <li class="page-item" :class="{ disabled: currentPage === 1 }">
               <a class="page-link" @click="previousPage" aria-label="Previous">
@@ -200,50 +201,59 @@ export default {
 /* Estilos adicionales personalizables aquí */
 .pagination .page-item:not(.disabled) .page-link {
   background-color: #2268A5;
-  border-color: #2268A5;
-  color: #000; /* Cambiar el color del texto a negro */
+  border-color:#2268A5;
+  color: #fff; /* Cambiar el color del texto a negro */
   cursor: pointer; /* Cambiar el cursor al estilo de enlace */
 }
 
 .pagination .page-item:not(.disabled) .page-link:hover .button-custom{
-  background-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+  background-color: #2268A5; 
+  border-color:#2268A5;/* Cambiar el color de fondo al pasar el cursor */
   color: #fff; /* Cambiar el color del texto al pasar el cursor */
 }
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  display: flex; /* Utilizamos flexbox para organizar los elementos */
-  height: 100vh; /* Hacemos que la altura ocupe toda la ventana */
-  margin: 0;
-}
-
-.sidebar {
+.btn {
   background-color: #2268A5;
-  color: #fff;
-  padding: 20px;
-  height: 100vh;
-  min-width: 25px; /* Define el ancho mínimo del panel */
+  border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
 }
 
-nav {
+.card-body {
   display: flex;
-  flex-direction: column; /* Hacemos que los enlaces estén en una columna */
+  align-items: center;
 }
 
-nav a {
-  font-weight: bold;
-  border-color:#2268A5;
-  color: #fff; /* Texto en color blanco */
-  text-decoration: none; /* Quita el subrayado de los enlaces */
-  padding: 5px 0;
+.button .button-custom{
+  background-color: #2268A5;
+  border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
 }
 
-nav a.router-link-exact-active {
-  background-color: #2c3e50; /* Color de fondo para el enlace activo */
+.btn .btn-primary
+{
+  background-color: #2268A5;
+  border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  align-self: flex-start;
 }
 
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
 
-.container {
-  margin-left: 200px;
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.pagination {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Alinea la paginación al centro */
+  align-items: center;
 }
 </style>
