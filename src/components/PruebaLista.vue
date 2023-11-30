@@ -1,4 +1,18 @@
 <template>
+  <div class="sidebar">
+    <nav>
+      <router-link to="/listarentidades">Entidades</router-link>
+      
+      <router-link to="/listarusuarios">Usuarios</router-link>
+
+      <router-link to="/listarservicios">Servicios</router-link>
+
+      <router-link to="/listarestandares">Estandares</router-link>
+
+      <router-link to="/listarcriterios">Criterios</router-link>
+
+    </nav>
+</div>
 <form action="/procesar" method="post">
     <label for="menuDesplegable">Selecciona una entidad:</label>
     <select id="menuDesplegable" name="entidad">

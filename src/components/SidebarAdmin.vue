@@ -1,21 +1,19 @@
 <template>
-    <div class="sidebar">
-        <nav>
-            
-          
-        <router-link to="/listarusuarios">Usuarios</router-link>
-    
-        <router-link to="/listarservicios">Servicios</router-link>
-    
-        <router-link to="/listarestandares">Estandares</router-link>
-    
-        <router-link to="/listarcriterios">Criterios</router-link>
-    
-        </nav>
-    </div>
-    </template>
-    <script>
-    export default {
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><router-link to="/listarusuarios">Usuarios</router-link></li>
+        <li><router-link to="/listarservicios">Servicios</router-link></li>
+        <li><router-link to="/listarestandares">Estandares</router-link></li>
+        <li><router-link to="/listarcriterios">Criterios</router-link></li>
+        <li><router-link to="/listararchivos">Archivos</router-link></li>
+      </ul>
+    </nav>
+  </div>
+  </template>
+
+<script>
+  export default {
   props: ['userType', 'selectedRoute'],
   methods: {
     Usuarios(id) {
@@ -40,32 +38,30 @@
       margin: 0;
     }
     
-    .sidebar {
-      background-color: #2268A5;
-      color: #fff;
-      padding: 20px;
-      height: 100vh;
-      min-width: 25px; /* Define el ancho mínimo del panel */
-    }
-    
-    nav {
-      display: flex;
-      flex-direction: column; /* Hacemos que los enlaces estén en una columna */
-    }
-    
-    nav a {
-      font-weight: bold;
-      border-color:#2268A5;
-      color: #fff; /* Texto en color blanco */
-      text-decoration: none; /* Quita el subrayado de los enlaces */
-      padding: 5px 0;
-    }
-    
     nav a.router-link-exact-active {
       background-color: #2c3e50; /* Color de fondo para el enlace activo */
     }
-    
-    
-    
-    
+
+    .sidebar {
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    }
+
+    nav ul {
+    list-style: none;
+    padding: 0;
+    }
+
+    nav li {
+    margin-bottom: 10px;
+    }
+
+    nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    }
     </style>

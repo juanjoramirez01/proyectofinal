@@ -1,8 +1,5 @@
 <template>
 
-    <div>
-      <SidebarComp/>
-    </div>
     <div class="container">
       <ListarEntidades/>
     </div>
@@ -11,12 +8,10 @@
   </template>
 
 <script>
-import SidebarComp from '../components/SidebarComp.vue';
 import ListarEntidades from '../components/ListarEntidades.vue';
 
 export default {
   components: {
-    SidebarComp,
     ListarEntidades
   }
 }

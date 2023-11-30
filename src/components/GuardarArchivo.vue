@@ -1,9 +1,21 @@
-GuardarArchivo.vue
---------------------------
 <template>
+  <div class="sidebar">
+    <nav>
+      <router-link to="/listarentidades">Entidades</router-link>
+      
+      <router-link to="/listarusuarios">Usuarios</router-link>
+
+      <router-link to="/listarservicios">Servicios</router-link>
+
+      <router-link to="/listarestandares">Estandares</router-link>
+
+      <router-link to="/listarcriterios">Criterios</router-link>
+
+    </nav>
+</div>
   <div class="container mt-5">
     <h2 class="text-center">Guardar archivo</h2>
-    <form @submit.prevent="filesdata" class="mt-4">
+    <form @submit.prevent="submitForm" class="mt-4">
         <div class="form-group">
             <label for="nameFile">Nombre del archivo:</label>
             <input type="text" id="nameFile" v-model="filesdata.nameFile" class="form-control" required>
@@ -77,16 +89,3 @@ export default {
   }
 };
 </script>
--------------------------------------------
-import GuardarArchivo from '../components/GuardarArchivo.vue'
-import ListarArchivo from '../components/ListarArchivo.vue'
-  {
-    path: '/guardararchivo',
-    name: 'guardararchivo',
-    component: GuardarArchivo
-  },
-  {
-    path: '/listararchivo',
-    name: 'listararchivo',
-    component: ListarArchivo
-  },

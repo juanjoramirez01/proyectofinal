@@ -1,10 +1,28 @@
 <template>
-  <div class="container mt-5">
-    <h2 class="text-center">Edición de datos de usuario</h2>
+  <div class="sidebar">
+    <nav>
+      <router-link to="/listarentidades">Entidades</router-link>
+      
+      <router-link to="/listarusuarios">Usuarios</router-link>
+
+      <router-link to="/listarservicios">Servicios</router-link>
+
+      <router-link to="/listarestandares">Estandares</router-link>
+
+      <router-link to="/listarcriterios">Criterios</router-link>
+
+    </nav>
+</div>
+  <div class="form-container">
+    <h2 style="text-align: center;">Edición de datos de usuario</h2>
     <form @submit.prevent="submitForm" class="mt-4">
       <div class="form-group">
         <label for="nameUser">Nombre:</label>
         <input type="text" id="nameUser" v-model="userData.nameUser" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="documentUser">Documento:</label>
+        <input type="text" id="documentUser" v-model="userData.documentUser" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="phoneUser">Teléfono:</label>
@@ -14,14 +32,9 @@
         <label for="positionUser">Posición:</label>
         <input type="text" id="positionUser" v-model="userData.positionUser" class="form-control" required>
       </div>
-      <!-- Los campos que no cambian permanecen deshabilitados y con un valor predefinido -->
-      <div class="form-group">
-        <label for="userId">ID de Usuario:</label>
-        <input type="text" id="userId" v-model="userData.userId" class="form-control" disabled>
-      </div>
       <div class="form-group">
         <label for="userEntityId">ID de Entidad (int):</label>
-        <input type="number" id="userEntityId" v-model="userData.userEntityId" class="form-control" disabled>
+        <input type="number" id="userEntityId" v-model="userData.userEntityId" class="form-control" required>
       </div>
       <button type="submit" class="btn btn-primary">Aceptar</button>
     </form>
@@ -38,6 +51,7 @@ export default {
         userId: this.$route.params.userId,
         userEntityId: this.$route.params.userEntityId,
         nameUser: '',
+        documentUser: '', 
         phoneUser: '',
         positionUser: '', 
       },
@@ -55,6 +69,7 @@ export default {
           operation: 'UpdateUser',
           key: 'e35d751c-12a8-4789-91d0-a95f055f0630',
           nameUser: this.userData.nameUser,
+          documentUser: this.userData.documentUser,
           phoneUser: this.userData.phoneUser,
           positionUser: this.userData.positionUser,
           userId: this.userData.userId,
@@ -75,6 +90,7 @@ export default {
           userId: this.$route.params.userId,
           userEntityId: this.$route.params.userEntityId,
           nameUser: '',
+          documentUser: '',
           phoneUser: '',
           positionUser: '',
           
@@ -87,3 +103,49 @@ export default {
   },
 };
 </script>
+
+<style>
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  display: flex; /* Utilizamos flexbox para organizar los elementos */
+  height: 100vh; /* Hacemos que la altura ocupe toda la ventana */
+  margin: 0;
+}
+
+.sidebar {
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2268A5;
+  color: #fff;
+  padding: 20px;
+  height: 100vh;
+  min-width: 25px; /* Define el ancho mínimo del panel */
+}
+
+nav {
+  display: flex;
+  flex-direction: column; /* Hacemos que los enlaces estén en una columna */
+}
+
+nav a {
+  font-weight: bold;
+  border-color:#2268A5;
+  color: #fff; /* Texto en color blanco */
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  padding: 5px 0;
+}
+
+nav a.router-link-exact-active {
+  background-color: #2c3e50; /* Color de fondo para el enlace activo */
+}
+</style>

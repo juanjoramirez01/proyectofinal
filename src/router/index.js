@@ -10,7 +10,6 @@ import CrearServicios from '../components/CrearServicios.vue'
 import EditarEntidad from '../components/EditarEntidad.vue'
 import SuperAdminHome from '../views/SuperAdminHome.vue'
 import AdminHome from '../components/AdminHome.vue'
-import UserHome from '../components/UserHome.vue'
 import AuditorHome from '../components/AuditorHome.vue'
 import ListarServicios from '../components/ListarServicios.vue'
 import EditarServicio from '../components/EditarServicio.vue'
@@ -25,13 +24,16 @@ import CrearEstandares from '../components/CrearEstandares.vue'
 import ListarEstandares from '../components/ListarEstandares.vue'
 import EditarEstandar from '../components/EditarEstandar.vue'
 import CrearCriterios from '../components/CrearCriterios.vue'
-import ListarCriterios  from '../components/ListarCriterios.vue'
+import ListarCriterioEstandar  from '../components/ListarCriterioEstandar.vue'
+import ListarCriterioServicio  from '../components/ListarCriterioServicio.vue'
 import EditarCriterio from '../components/EditarCriterio.vue'
 import CumplimientosTable from '../components/CumplimientosTable.vue'
 import EstadoChart from '../components/EstadoChart.vue'
 import DashBoard from '../components/DashBoard.vue'
 import Login from '../views/LoginView.vue'
-
+import GuardarArchivo from '../components/GuardarArchivo.vue'
+import ListarArchivoEstandar from '../components/ListarArchivoEstandar.vue'
+import RecuperarCont from '../components/RecuperarCont.vue'
 
 
 
@@ -87,20 +89,25 @@ const routes = [
     component: AllCriteria
   },
   {
+    path: '/adminhome/:idEntity',
+    name: 'adminhome',
+    component: AdminHome
+  },
+  {
     path: '/superadminhome',
     name: 'superadminhome',
     component: SuperAdminHome
   },
   
   {
-    path: '/userhome',
-    name: 'userhome',
-    component: UserHome
-  },
-  {
     path: '/auditorhome',
     name: 'auditorhome',
     component: AuditorHome
+  },
+  {
+    path: '/recuperarcont',
+    name: 'recuperarcont',
+    component: RecuperarCont
   },
   {
     path: '/listarusuarios/:idEntity',
@@ -168,6 +175,11 @@ const routes = [
     component: CrearUsuarios
   },
   {
+    path: '/crearusuarios/:idEntity',
+    name: 'agregarusuarios',
+    component: CrearUsuarios
+  },
+  {
     path: '/crearestandares',
     name: 'crearestandares',
     component: CrearEstandares
@@ -183,9 +195,14 @@ const routes = [
     component: CrearCriterios
   },
   {
+    path: '/listarcriterios/:idStandard',
+    name: 'listarcriterioestandar',
+    component: ListarCriterioEstandar
+  },
+  {
     path: '/listarcriterios/:idService',
-    name: 'listarcriterios',
-    component: ListarCriterios
+    name: 'listarcriterioservicio',
+    component: ListarCriterioServicio
   },
   {
     path: '/cumplimientostable/',
@@ -201,6 +218,16 @@ const routes = [
     path: '/dashboard/',
     name: 'dashboard',
     component: DashBoard
+  },
+  {
+    path: '/guardararchivo',
+    name: 'guardararchivo',
+    component: GuardarArchivo
+  },
+  {
+    path: '/listararchivos/:idStandard',
+    name: 'listararchivoestandar',
+    component: ListarArchivoEstandar
   },
 ]
 

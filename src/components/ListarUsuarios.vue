@@ -1,4 +1,17 @@
 <template>
+  <div class="sidebar">
+    <nav>
+      
+      <router-link to="/listarusuarios">Usuarios</router-link>
+
+      <router-link to="/listarservicios">Servicios</router-link>
+
+      <router-link to="/listarestandares">Estandares</router-link>
+
+      <router-link to="/listarcriterios">Criterios</router-link>
+
+    </nav>
+</div>
   <div class="container">
     <div class="card">
       <div class="card-header">
@@ -8,17 +21,20 @@
         <table class="table">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Nombre</th>
+              <th>Nickname</th>
+              <th>Documento</th>
               <th>Teléfono</th>
               <th>Posición</th>
-              <th>Acciones</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="usuario in paginatedUsuarios" :key="usuario.id">
               <td>{{ usuario.id }}</td>
               <td>{{ usuario.name }}</td>
+              <td>{{ usuario.nickname }}</td>
+              <td>{{ usuario.document }}</td>
               <td>{{ usuario.phone }}</td>
               <td>{{ usuario.position }}</td>
               <td>
@@ -31,7 +47,7 @@
       </div>
       <div class="card-footer">
         
-          <button @click="agregarUsuario" class="btn btn-primary">+ Agregar usuario</button>
+          <button @click="agregarUsuario(entityData.idEntity)" class="btn btn-primary">+ Agregar usuario</button>
         
         
         <nav aria-label="Page navigation example">
@@ -152,20 +168,20 @@ export default {
         this.borrarUsuario(usuarioToDelete.id);
       }
     },
-    agregarUsuario() {
-      this.$router.push({ name: 'crearusuarios' });
+    agregarUsuario(entityId) {
+      this.$router.push({ name: 'agregarusuarios', params: { userEntityId: entityId } });
     },
     editUsuario(id, entityId) {
       console.log('editUsuario method called with entityId:', entityId, 'and id:', id);
-      this.consultarUsuarioPorId(id);
       this.$router.push({ name: 'editarusuario', params: { userEntityId: entityId, userId: id } });
       
       
     },
     async borrarUsuario(userId) {
       try {
-        const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=DeleteUser&UserId=${userId}&key=e35d751c-12a8-4789-91d0-a95f055f0630`;
+        const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=DeleteUser&userId=${userId}&key=e35d751c-12a8-4789-91d0-a95f055f0630`;
         const response = await axios.get(url);
+        console.log('Respuesta del servidor:', url);
         console.log('Respuesta del servidor:', response.data);
         alert('Usuario eliminado con éxito.');
 
@@ -193,5 +209,37 @@ export default {
 .pagination .page-item:not(.disabled) .page-link:hover .button-custom{
   background-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
   color: #fff; /* Cambiar el color del texto al pasar el cursor */
+}
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  display: flex; /* Utilizamos flexbox para organizar los elementos */
+  height: 100vh; /* Hacemos que la altura ocupe toda la ventana */
+  margin: 0;
+}
+
+.sidebar {
+  background-color: #2268A5;
+  color: #fff;
+  padding: 20px;
+  height: 100vh;
+  min-width: 25px; /* Define el ancho mínimo del panel */
+}
+
+nav {
+  display: flex;
+  flex-direction: column; /* Hacemos que los enlaces estén en una columna */
+}
+
+nav a {
+  font-weight: bold;
+  border-color:#2268A5;
+  color: #fff; /* Texto en color blanco */
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  padding: 5px 0;
+}
+
+nav a.router-link-exact-active {
+  background-color: #2c3e50; /* Color de fondo para el enlace activo */
 }
 </style>
