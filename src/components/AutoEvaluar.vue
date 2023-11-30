@@ -16,18 +16,18 @@
       <div class="form-container">
         <h2 class="text-center">Edición de datos de criterio</h2>
         <form @submit.prevent="submitForm" class="mt-4">
-          <div class="form-group">
-            <label for="descriptionCriteria">Descripción del criterio:</label>
-            <input type="text" id="descriptionCriteria" v-model="criteriaData.descriptionCriteria" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="standardIdCriteria">ID del Estandar (int):</label>
-            <input type="number" id="standardIdCriteria" v-model="criteriaData.standardIdCriteria" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="serviceIdCriteria">ID del Servicio (int):</label>
-            <input type="number" id="serviceIdCriteria" v-model="criteriaData.serviceIdCriteria" class="form-control" required>
-          </div>
+            <div class="form-group">
+                <label for="answerCriteria">Respuesta del criterio:</label>
+                <select id="answerCriteria" v-model="criteriaData.answerCriteria" class="form-control" required>
+                    <option value="C">Cumple</option>
+                    <option value="NC">No cumple</option>
+                    <option value="NA">No aplica</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="observationCriteria">Observación del criterio:</label>
+                <input type="text" id="observationCriteria" v-model="criteriaData.observationCriteria" class="form-control" required>
+            </div>
           <button type="submit" class="btn btn-primary">Aceptar</button>
         </form>
       </div>
@@ -43,7 +43,7 @@
             idCriteria: this.$route.params.idCriteria,
             standardIdCriteria: this.$route.params.standardIdCriteria,
             serviceIdCriteria: this.$route.params.serviceIdCriteria,
-            descriptionCriteria: '',
+            descriptionCriteria: this.$route.params.descriptionCriteria,
             answerCriteria: '',
             observationCriteria: '', 
           },
@@ -82,7 +82,7 @@
               idCriteria: this.$route.params.idCriteria,
               standardIdCriteria: this.$route.params.standardIdCriteria,
               serviceIdCriteria: this.$route.params.serviceIdCriteria,
-              descriptionCriteria: '',
+              descriptionCriteria: this.$route.params.descriptionCriteria,
               answerCriteria: '',
               observationCriteria: '',
               
@@ -140,4 +140,3 @@
     background-color: #2c3e50; /* Color de fondo para el enlace activo */
   }
   </style>
-    

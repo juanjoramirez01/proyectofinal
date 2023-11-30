@@ -168,7 +168,7 @@
       },
       editCriterio(id, idService) {
         console.log('editCriterio method called with idService:', idService, 'and id:', id);
-        this.$router.push({ name: 'editarcriterio', params: { serviceIdCriteria: idService, idCriteria: id } });
+        this.$router.push({ name: 'editarcriterioservicio', params: { serviceIdCriteria: idService, idCriteria: id } });
         
         
       },
@@ -235,6 +235,11 @@ nav a {
 
 nav a.router-link-exact-active {
   background-color: #2c3e50; /* Color de fondo para el enlace activo */
+}
+
+
+.container {
+  margin-left: 200px;
 }
   </style>
   

@@ -42,6 +42,7 @@
               <td>
                 <button @click="consultarCriterioPorId(criterio.id)">Editar</button>
                 <button @click="confirmDelete(criterio.id)">Eliminar</button>
+                <button @click="Archivos(criterio.id)">Archivos</button>
               </td>
             </tr>
           </tbody>
@@ -173,6 +174,10 @@ export default {
     
     
   },
+    Archivos(id) {
+      // Redirigir a la vista de listar usarios y pasar el ID como parámetro
+      this.$router.push({ name: 'listararchivocriterio', params: { idCriteria: id } });
+    },
     async borrarCriterio(idCriteria) {
       try {
         const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=DeleteCriteria&idCriteria=${idCriteria}&key=e35d751c-12a8-4789-91d0-a95f055f0630`;

@@ -19,7 +19,6 @@ import AllUsers from '../components/AllUsers.vue'
 import AllServices from '../components/AllServices.vue'
 import AllStandard from '../components/AllStandard.vue'
 import AllCriteria from '../components/AllCriteria.vue'
-import Autoevaluacion from '../views/UserView.vue'
 import CrearEstandares from '../components/CrearEstandares.vue'
 import ListarEstandares from '../components/ListarEstandares.vue'
 import EditarEstandar from '../components/EditarEstandar.vue'
@@ -33,8 +32,10 @@ import DashBoard from '../components/DashBoard.vue'
 import Login from '../views/LoginView.vue'
 import GuardarArchivo from '../components/GuardarArchivo.vue'
 import ListarArchivoEstandar from '../components/ListarArchivoEstandar.vue'
+import ListarArchivoCriterio from '../components/ListarArchivoCriterio.vue'
 import RecuperarCont from '../components/RecuperarCont.vue'
-
+import AutoEvaluacion from '../components/AutoEvaluacion.vue'
+import AutoEvaluar from '../components/AutoEvaluar.vue'
 
 
 const routes = [
@@ -89,6 +90,16 @@ const routes = [
     component: AllCriteria
   },
   {
+    path: '/autoevaluacion',
+    name: 'autoevaluacion',
+    component: AutoEvaluacion
+  },
+  {
+    path: '/autoevaluar',
+    name: 'autoevaluar',
+    component: AutoEvaluar
+  },
+  {
     path: '/adminhome/:idEntity',
     name: 'adminhome',
     component: AdminHome
@@ -119,12 +130,6 @@ const routes = [
     path: '/listarservicios/:idEntity',
     name: 'listarservicios',
     component: ListarServicios
-  },
-
-  {
-    path: '/autoevaluacion',
-    name: 'autoevaluacion',
-    component: Autoevaluacion
   },
 
   {
@@ -159,8 +164,18 @@ const routes = [
     component: EditarEstandar
   },
   {
-    path: '/editarcriterio/:serviceIdCriteria/:idCriteria',
+    path: '/editarcriterio/:idCriteria',
     name: 'editarcriterio',
+    component: EditarCriterio
+  },
+  {
+    path: '/editarcriterio/:serviceIdCriteria/:idCriteria',
+    name: 'editarcriterioservicio',
+    component: EditarCriterio
+  },
+  {
+    path: '/editarcriterio/:standardIdCriteria/:idCriteria',
+    name: 'editarcriterioestandar',
     component: EditarCriterio
   },
   
@@ -228,6 +243,11 @@ const routes = [
     path: '/listararchivos/:idStandard',
     name: 'listararchivoestandar',
     component: ListarArchivoEstandar
+  },
+  {
+    path: '/listararchivos/:idCriteria',
+    name: 'listararchivocriterio',
+    component: ListarArchivoCriterio
   },
 ]
 

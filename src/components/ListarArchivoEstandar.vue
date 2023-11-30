@@ -1,4 +1,5 @@
 <template>
+  
   <div class="sidebar">
     <nav>
       <router-link to="/listarentidades">Entidades</router-link>
@@ -111,4 +112,56 @@
 
   
   </script>
+
+<style scoped>
+/* Estilos adicionales personalizables aquí */
+.pagination .page-item:not(.disabled) .page-link {
+  background-color: #42b983;
+  border-color: #42b983;
+  color: #000; /* Cambiar el color del texto a negro */
+  cursor: pointer; /* Cambiar el cursor al estilo de enlace */
+}
+
+.pagination .page-item:not(.disabled) .page-link:hover .button-custom{
+  background-color: #42b983; /* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
+}
+
+#app {
+font-family: Avenir, Helvetica, Arial, sans-serif;
+display: flex; /* Utilizamos flexbox para organizar los elementos */
+height: 100vh; /* Hacemos que la altura ocupe toda la ventana */
+margin: 0;
+}
+
+.sidebar {
+background-color: #2268A5;
+color: #fff;
+padding: 20px;
+height: 100vh;
+min-width: 25px; /* Define el ancho mínimo del panel */
+}
+
+nav {
+display: flex;
+flex-direction: column; /* Hacemos que los enlaces estén en una columna */
+}
+
+nav a {
+font-weight: bold;
+border-color:#2268A5;
+color: #fff; /* Texto en color blanco */
+text-decoration: none; /* Quita el subrayado de los enlaces */
+padding: 5px 0;
+}
+
+nav a.router-link-exact-active {
+background-color: #2c3e50; /* Color de fondo para el enlace activo */
+}
+
+
+.container {
+margin-left: 200px;
+}
+</style>
   

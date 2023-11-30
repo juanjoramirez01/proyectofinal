@@ -229,4 +229,9 @@ nav a {
 nav a.router-link-exact-active {
   background-color: #2c3e50; /* Color de fondo para el enlace activo */
 }
+
+
+.container {
+  margin-left: 200px;
+}
 </style>
