@@ -25,7 +25,7 @@
                 <button type="submit" class="btn btn-primary">Ingresar</button>
               </form>
               <div class="text-center fs-6 mt-3">
-                <a href="#">Recuperar contraseña</a>
+                <router-link to="/recuperarcont">Recuperar contraseña</router-link>
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default {
                             this.$store.commit('setRoleStatus', { role: 'isAdmin', status: true });
                             break;
                           case 2:
-                            homeRouteName = 'userhome';
+                            homeRouteName = 'autoevaluacion';
                             this.$store.commit('setRoleStatus', { role: 'isUser', status: true });
                             break;
                           case 3:

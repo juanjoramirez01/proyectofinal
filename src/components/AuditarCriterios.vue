@@ -20,6 +20,14 @@
                 <label for="observationCriteriaAuditor">Observación del criterio:</label>
                 <textarea id="observationCriteriaAuditor" v-model="criteriaData.observationCriteriaAuditor" class="form-control" required></textarea>
             </div>
+            <div class="form-group">
+              <label for="standardIdCriteria">ID del Estandar (int):</label>
+              <input type="number" id="standardIdCriteria" v-model="criteriaData.standardIdCriteria" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="serviceIdCriteria">ID del Servicio (int):</label>
+              <input type="number" id="serviceIdCriteria" v-model="criteriaData.serviceIdCriteria" class="form-control" required>
+            </div>
           <button type="submit" class="btn btn-primary">Aceptar</button>
         </form>
       </div>

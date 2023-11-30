@@ -18,7 +18,7 @@
       <form @submit.prevent="submitForm" class="mt-4">
         <div class="form-group">
           <label for="descriptionCriteria">Descripción del criterio:</label>
-          <input type="text" id="descriptionCriteria" v-model="criteriaData.descriptionCriteria" class="form-control" required>
+          <input type="text" id="descriptionCriteria" v-model="criteriaData.observationCriteria" class="form-control" required>
         </div>
         <div class="form-group">
           <label for="standardIdCriteria">ID del Estandar (int):</label>

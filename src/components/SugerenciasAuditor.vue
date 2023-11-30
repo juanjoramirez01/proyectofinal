@@ -1,6 +1,10 @@
 <template>
     <div class="sidebar">
       <nav>
+        <router-link to="/listarentidades">Entidades</router-link>
+        
+        <router-link to="/listarusuarios">Usuarios</router-link>
+  
         <router-link to="/listarservicios">Servicios</router-link>
   
         <router-link to="/listarestandares">Estandares</router-link>
@@ -12,7 +16,7 @@
     <div class="container">
       <div class="card">
         <div class="card-header">
-          Lista de Criterios
+          Sugerencias del auditor
         </div>
         <div class="card-body">
           <table class="table">
@@ -20,26 +24,20 @@
               <tr>
                   <th>Descripción</th>
                   <th>Respuesta</th>
-                  <th>Observación</th>
+                  <th>Observación del auditor</th>
                   <th>Estandar</th>
                   <th>Servicio</th>
                   <th>Entidad</th>
-                  <th></th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="criterio in paginatedCriterios" :key="criterio.id">
                   <td>{{ criterio.description }}</td>
                   <td>{{ criterio.answer }}</td>
-                  <td>{{ criterio.observation }}</td>
+                  <td>{{ criterio.observationAuditor }}</td>
                   <td>{{ criterio.standardName }}</td>
                   <td>{{ criterio.serviceName }}</td>
                   <td>{{ criterio.entityName }}</td>
-                <td>
-                  <button @click="consultarCriterioPorId(criterio.id)">Autoevaluar</button>
-                  <button @click="Auditor(criterio.id)">Auditoría</button>
-                  <button @click="Archivos(criterio.id)">Archivos</button>
-                </td>
               </tr>
             </tbody>
           </table>
@@ -100,7 +98,7 @@
         const key = 'e35d751c-12a8-4789-91d0-a95f055f0630';
         const tna = 5;
   
-        const url = `https://redb.qsystems.co/QS3100/QServlet?operation=queryCriteriadByTenancy&tna=${tna}&key=${key}`;
+        const url = `https://redb.qsystems.co/QS3100/QServlet?operation=queryCriteriaById&tna=${tna}&key=${key}&idCriteria=${this.$route.params.idCriteria}`;
   
         axios
           .get(url)
@@ -127,9 +125,10 @@
           // Obtén el idStandard y idService directamente del criterio
           const idStandard = response.data.arrayCriteria[0].standardID;
           const idService = response.data.arrayCriteria[0].serviceID;
+          const description = response.data.arrayCriteria[0].description;
   
-          if (idStandard, idService) {
-            this.editCriterio(idCriteria, idStandard, idService);
+          if (idStandard, idService, description) {
+            this.editCriterio(idCriteria, idStandard, idService, description);
           } else {
             console.error('No se encontró en la respuesta del servidor.');
           }
@@ -156,15 +155,15 @@
       },
   
       Auditor(id) {
-        this.$router.push({ name: 'sugerenciasauditor', params: { idCriteria: id } });
+        this.$router.push({ name: 'auditoria', params: { idCriteria: id } });
       
       },
       agregarCriterio() {
         this.$router.push({ name: 'crearcriterios' });
       },
-      editCriterio(id, idStandard, idService) {
+      editCriterio(id, idStandard, idService, description) {
       console.log('editCriterio method called with idService', idService, 'idStandard:', idStandard, 'and id:', id);
-      this.$router.push({ name: 'autoevaluar', params: { serviceIdCriteria: idService, standardIdCriteria: idStandard, idCriteria: id } });
+      this.$router.push({ name: 'autoevaluar', params: { descriptionCriteria: description, serviceIdCriteria: idService, standardIdCriteria: idStandard, idCriteria: id } });
       
       
     },

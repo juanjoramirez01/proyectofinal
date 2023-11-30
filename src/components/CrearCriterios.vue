@@ -21,6 +21,14 @@
           <input type="text" id="descriptionCriteria" v-model="criteriaData.descriptionCriteria" class="form-control" required>
         </div>
         <div class="form-group">
+          <label for="descriptionCriteria">Descripción del criterio:</label>
+          <input type="text" id="descriptionCriteria" v-model="criteriaData.answerCriteria" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="descriptionCriteria">Descripción del criterio:</label>
+          <input type="text" id="descriptionCriteria" v-model="criteriaData.observationCriteria" class="form-control" required>
+        </div>
+        <div class="form-group">
           <label for="standardIdCriteria">ID del Estandar (int):</label>
           <input type="number" id="standardIdCriteria" v-model="criteriaData.standardIdCriteria" class="form-control" required>
         </div>

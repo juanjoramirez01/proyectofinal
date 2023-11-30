@@ -130,10 +130,9 @@ export default {
         // Obtén el idStandard y idService directamente del criterio
         const idStandard = response.data.arrayCriteria[0].standardID;
         const idService = response.data.arrayCriteria[0].serviceID;
-        const description = response.data.arrayCriteria[0].description;
 
-        if (idStandard, idService, description) {
-          this.editCriterio(idCriteria, idStandard, idService, description);
+        if (idStandard, idService) {
+          this.Auditar(idCriteria, idStandard, idService);
         } else {
           console.error('No se encontró en la respuesta del servidor.');
         }
@@ -168,9 +167,9 @@ export default {
     agregarCriterio() {
       this.$router.push({ name: 'crearcriterios' });
     },
-    editCriterio(id, idStandard, idService, description) {
+    Auditar(id, idStandard, idService) {
     console.log('editCriterio method called with idService', idService, 'idStandard:', idStandard, 'and id:', id);
-    this.$router.push({ name: 'autoevaluar', params: { descriptionCriteria: description, serviceIdCriteria: idService, standardIdCriteria: idStandard, idCriteria: id } });
+    this.$router.push({ name: 'auditar', params: { serviceIdCriteria: idService, standardIdCriteria: idStandard, idCriteria: id } });
     
     
   },
@@ -178,10 +177,7 @@ export default {
       // Redirigir a la vista de listar usarios y pasar el ID como parámetro
       this.$router.push({ name: 'listararchivocriterio', params: { idCriteria: id } });
     },
-    
-    Auditar(id){
-      this.$router.push({ name: 'auditar', params: { idCriteria: id } });
-    },
+  
     async borrarCriterio(idCriteria) {
       try {
         const url = `https://redb.qsystems.co/QS3100/QServlet?tna=5&operation=DeleteCriteria&idCriteria=${idCriteria}&key=e35d751c-12a8-4789-91d0-a95f055f0630`;

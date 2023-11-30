@@ -37,7 +37,7 @@ import ListarArchivoCriterio from '../components/ListarArchivoCriterio.vue'
 import RecuperarCont from '../components/RecuperarCont.vue'
 import AutoEvaluacion from '../components/AutoEvaluacion.vue'
 import AutoEvaluar from '../components/AutoEvaluar.vue'
-
+import SugerenciasAuditor from '../components/SugerenciasAuditor.vue'
 
 const routes = [
 
@@ -116,9 +116,14 @@ const routes = [
     name: 'auditor',
     component: AuditorHome
   },
+  {
+    path: '/sugerenciasauditor/:idCriteria',
+    name: 'sugerenciasauditor',
+    component: SugerenciasAuditor
+  },
   
   {
-    path: '/auditar',
+    path: '/auditar/:idCriteria',
     name: 'auditar',
     component: AuditarCriterios
   },
