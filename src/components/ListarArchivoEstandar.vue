@@ -108,7 +108,7 @@
       },
       // Resto de tus métodos, como editArchivo, confirmDelete, agregarArchivo, etc.
       confirmDelete(id) {
-        const criterioToDelete = this.archivos.find((archivo) => archivo.id === id);
+        const archivoToDelete = this.archivos.find((archivo) => archivo.id === id);
         if (archivoToDelete && confirm(`¿Seguro que deseas eliminar el archivo con ID: ${id}?`)) {
           this.borrarArchivo(archivoToDelete.id);
         }
