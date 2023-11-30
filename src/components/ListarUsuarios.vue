@@ -47,7 +47,7 @@
       <div class="card-footer">
         <div aria-label="First group">
           <button @click="agregarUsuario(entityData.idEntity)" class="btn btn-primary">+ Agregar usuario</button>
-        
+  
         </div>
         <nav aria-label="pagination-container">
           <nav aria-label="Second group"></nav>

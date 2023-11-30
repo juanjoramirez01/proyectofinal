@@ -44,8 +44,11 @@
         </table>
       </div>
       <div class="card-footer">
+        <div aria-label="First group">
         <button @click="agregarServicio" class="btn btn-primary">+ Agregar servicio</button>
+        </div>
         <nav aria-label="Page navigation example">
+          <nav aria-label="Second group">
           <ul class="pagination justify-content-center d-flex">
             <li class="page-item" :class="{ disabled: currentPage === 1 }">
               <a class="page-link" @click="previousPage" aria-label="Previous">
@@ -64,6 +67,7 @@
             </li>
           </ul>
         </nav>
+        </nav>
       </div>
     </div>
   </div>
@@ -77,7 +81,7 @@ export default {
     return {
       servicios: [],
       currentPage: 1,
-      itemsPerPage: 10,
+      itemsPerPage: 5,
     };
   },
   computed: {
@@ -199,16 +203,38 @@ export default {
 <style scoped>
 /* Estilos adicionales personalizables aquí */
 .pagination .page-item:not(.disabled) .page-link {
-  background-color: #42b983;
-  border-color: #42b983;
-  color: #000; /* Cambiar el color del texto a negro */
-  cursor: pointer; /* Cambiar el cursor al estilo de enlace */
-}
+    background-color: #2268A5;
+    border-color:#2268A5;
+    color: #fff; /* Cambiar el color del texto a negro */
+    cursor: pointer; /* Cambiar el cursor al estilo de enlace */
+  }
+  
+  .pagination .page-item:not(.disabled) .page-link:hover .button-custom{
+    background-color: #2268A5; 
+    border-color:#2268A5;/* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  }
+  
+  .btn {
+    background-color: #2268A5;
+    border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  }
 
-.pagination .page-item:not(.disabled) .page-link:hover .button-custom {
-  background-color: #42b983; /* Cambiar el color de fondo al pasar el cursor */
-  color: #fff; /* Cambiar el color del texto al pasar el cursor */
-}
+  
+  .button .button-custom{
+    background-color: #2268A5;
+    border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  }
+  
+  .btn .btn-primary
+  {
+    background-color: #2268A5;
+    border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+    align-self: flex-start;
+  }
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

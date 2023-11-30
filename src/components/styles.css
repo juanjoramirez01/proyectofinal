@@ -1,0 +1,56 @@
+/* styles.css */
+.pagination .page-item:not(.disabled) .page-link {
+    background-color: #2268A5;
+    border-color:#2268A5;
+    color: #fff; /* Cambiar el color del texto a negro */
+    cursor: pointer; /* Cambiar el cursor al estilo de enlace */
+  }
+  
+  .pagination .page-item:not(.disabled) .page-link:hover .button-custom{
+    background-color: #2268A5; 
+    border-color:#2268A5;/* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  }
+  
+  .btn {
+    background-color: #2268A5;
+    border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  }
+
+  
+  .button .button-custom{
+    background-color: #2268A5;
+    border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  }
+  
+  .btn .btn-primary
+  {
+    background-color: #2268A5;
+    border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+    align-self: flex-start;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .pagination-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  
+  .pagination {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center; /* Alinea la paginación al centro */
+    align-items: center;
+  }
+
+  

@@ -40,7 +40,8 @@
       </div>
       <div class="card-footer">
         <button @click="agregarServicio" class="btn btn-primary">+ Agregar servicio</button>
-        <nav aria-label="Page navigation example">
+        <nav aria-label="pagination-container">
+          <nav aria-label="Second group"></nav>
           <ul class="pagination justify-content-center d-flex">
             <li class="page-item" :class="{ disabled: currentPage === 1 }">
               <a class="page-link" @click="previousPage" aria-label="Previous">
@@ -72,7 +73,7 @@ export default {
     return {
       servicios: [],
       currentPage: 1,
-      itemsPerPage: 10,
+      itemsPerPage: 8,
       entityData: {
         idEntity: this.$route.params.idEntity,
       },
@@ -184,17 +185,7 @@ export default {
 
 <style scoped>
 /* Estilos adicionales personalizables aquí */
-.pagination .page-item:not(.disabled) .page-link {
-  background-color: #42b983;
-  border-color: #42b983;
-  color: #000; /* Cambiar el color del texto a negro */
-  cursor: pointer; /* Cambiar el cursor al estilo de enlace */
-}
 
-.pagination .page-item:not(.disabled) .page-link:hover .button-custom{
-  background-color: #42b983; /* Cambiar el color de fondo al pasar el cursor */
-  color: #fff; /* Cambiar el color del texto al pasar el cursor */
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   display: flex; /* Utilizamos flexbox para organizar los elementos */
@@ -215,6 +206,18 @@ nav {
   flex-direction: column; /* Hacemos que los enlaces estén en una columna */
 }
 
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.pagination {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center; /* Alinea la paginación al centro */
+  align-items: center;
+}
 nav a {
   font-weight: bold;
   border-color:#2268A5;
@@ -225,6 +228,42 @@ nav a {
 
 nav a.router-link-exact-active {
   background-color: #2c3e50; /* Color de fondo para el enlace activo */
+}
+
+.pagination .page-item:not(.disabled) .page-link {
+  background-color: #2268A5;
+  border-color:#2268A5;
+  color: #fff; /* Cambiar el color del texto a negro */
+  cursor: pointer; /* Cambiar el cursor al estilo de enlace */
+}
+
+.pagination .page-item:not(.disabled) .page-link:hover .button-custom{
+  background-color: #2268A5; 
+  border-color:#2268A5;/* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
+}
+
+.btn {
+  background-color: #2268A5;
+  border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
+}
+.card-body {
+  display: flex;
+  align-items: center;
+}
+
+.button .button-custom{
+  background-color: #2268A5;
+  border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
+}
+.btn .btn-primary
+{
+  background-color: #2268A5;
+  border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+  color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  align-self: flex-start;
 }
 
 

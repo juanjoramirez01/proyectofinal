@@ -201,16 +201,40 @@ export default {
 <style scoped>
 /* Estilos adicionales personalizables aquí */
 .pagination .page-item:not(.disabled) .page-link {
-  background-color: #42b983;
-  border-color: #42b983;
-  color: #000; /* Cambiar el color del texto a negro */
-  cursor: pointer; /* Cambiar el cursor al estilo de enlace */
-}
+    background-color: #2268A5;
+    border-color:#2268A5;
+    color: #fff; /* Cambiar el color del texto a negro */
+    cursor: pointer; /* Cambiar el cursor al estilo de enlace */
+  }
+  
+  .pagination .page-item:not(.disabled) .page-link:hover .button-custom{
+    background-color: #2268A5; 
+    border-color:#2268A5;/* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  }
+  
+  .btn {
+    background-color: #2268A5;
+    border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  }
 
-.pagination .page-item:not(.disabled) .page-link:hover .button-custom {
-  background-color: #42b983; /* Cambiar el color de fondo al pasar el cursor */
-  color: #fff; /* Cambiar el color del texto al pasar el cursor */
-}
+  
+  .button .button-custom{
+    background-color: #2268A5;
+    border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+  }
+  
+  .btn .btn-primary
+  {
+    background-color: #2268A5;
+    border-color: #2268A5; /* Cambiar el color de fondo al pasar el cursor */
+    color: #fff; /* Cambiar el color del texto al pasar el cursor */
+    align-self: flex-start;
+  }
+
+
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
